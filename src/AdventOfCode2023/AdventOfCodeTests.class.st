@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 AdventOfCodeTests >> baseDirectory [
-	^ '/Users/jan/Projects/AdventOfCode2023' asFileReference 
+	^ FileSystem workingDirectory / 'pharo-local/iceberg/advent-of-code-smalltalk/data'
 ]
 
 { #category : #tests }
