@@ -9,32 +9,8 @@ AdventOfCodeTests >> baseDirectory [
 	^ FileSystem workingDirectory / 'pharo-local/iceberg/advent-of-code-smalltalk/data'
 ]
 
-{ #category : #tests }
-AdventOfCodeTests >> calcDay3Part1 [
-	"self new calcDay3Part1"
-
-	| day3|
-	
-	day3 := self baseDirectory / 'day3_input.txt' readStreamDo: [ :stream |
-		Day3Schematic fromStream: stream ].
-
-	^ day3 sumOfPartNumbers
-]
-
-{ #category : #tests }
-AdventOfCodeTests >> calcDay3Part2 [
-	"self new calcDay3Part2"
-
-	| day3|
-	
-	day3 := self baseDirectory / 'day3_input.txt' readStreamDo: [ :stream |
-		Day3Schematic fromStream: stream ].
-
-	^ day3 totalGearRatio 
-]
-
-{ #category : #tests }
-AdventOfCodeTests >> countPossibleGames: stream [
+{ #category : #calculating }
+AdventOfCodeTests >> day2CountPossibleGames: stream [
 
 	| games sum |
 	
@@ -47,14 +23,38 @@ AdventOfCodeTests >> countPossibleGames: stream [
 	^ sum
 ]
 
-{ #category : #tests }
-AdventOfCodeTests >> countPowerOfFewestCubes: stream [
+{ #category : #calculating }
+AdventOfCodeTests >> day2CountPowerOfFewestCubes: stream [
 	"'/Users/jan/Projects/AdventOfCode2023/day2_input.txt' asFileReference
 		readStreamDo: [ :stream | self new countPowerOfFewestCubes: stream ]."
 
 	| games |
 	games := Day2Game readAllFrom: stream.
 	^ games inject: 0 into: [ :sum :each | sum + each minGrab power ]
+]
+
+{ #category : #calculating }
+AdventOfCodeTests >> day3CalcPart1 [
+	"self new calcDay3Part1"
+
+	| day3|
+	
+	day3 := self baseDirectory / 'day3_input.txt' readStreamDo: [ :stream |
+		Day3Schematic fromStream: stream ].
+
+	^ day3 sumOfPartNumbers
+]
+
+{ #category : #calculating }
+AdventOfCodeTests >> day3CalcPart2 [
+	"self new calcDay3Part2"
+
+	| day3|
+	
+	day3 := self baseDirectory / 'day3_input.txt' readStreamDo: [ :stream |
+		Day3Schematic fromStream: stream ].
+
+	^ day3 totalGearRatio 
 ]
 
 { #category : #tests }
@@ -84,7 +84,7 @@ AdventOfCodeTests >> testDay2CountPossibleGames [
 
 	| count |
 	count := self baseDirectory / 'day2_input.txt' readStreamDo: [ :stream |
-		self countPossibleGames: stream ].
+		self day2CountPossibleGames: stream ].
 
 	self assert: count equals: 2268
 ]
@@ -93,7 +93,7 @@ AdventOfCodeTests >> testDay2CountPossibleGames [
 AdventOfCodeTests >> testDay2PowerOfFewestCubes [
 	| count |
 	count := self baseDirectory / 'day2_input.txt' readStreamDo: [ :stream |
-		self countPowerOfFewestCubes: stream ].
+		self day2CountPowerOfFewestCubes: stream ].
 
 	self assert: count equals: 63542
 ]
