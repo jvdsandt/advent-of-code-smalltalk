@@ -10,6 +10,30 @@ AdventOfCodeTests >> baseDirectory [
 ]
 
 { #category : #tests }
+AdventOfCodeTests >> calcDay3Part1 [
+	"self new calcDay3Part1"
+
+	| day3|
+	
+	day3 := self baseDirectory / 'day3_input.txt' readStreamDo: [ :stream |
+		Day3Schematic fromStream: stream ].
+
+	^ day3 sumOfPartNumbers
+]
+
+{ #category : #tests }
+AdventOfCodeTests >> calcDay3Part2 [
+	"self new calcDay3Part2"
+
+	| day3|
+	
+	day3 := self baseDirectory / 'day3_input.txt' readStreamDo: [ :stream |
+		Day3Schematic fromStream: stream ].
+
+	^ day3 totalGearRatio 
+]
+
+{ #category : #tests }
 AdventOfCodeTests >> countPossibleGames: stream [
 
 	| games sum |
@@ -72,4 +96,46 @@ AdventOfCodeTests >> testDay2PowerOfFewestCubes [
 		self countPowerOfFewestCubes: stream ].
 
 	self assert: count equals: 63542
+]
+
+{ #category : #tests }
+AdventOfCodeTests >> testDay3Part1Example [
+
+	| input day3 |
+	
+	input := '467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..'.
+
+	day3 := Day3Schematic fromStream: input readStream.
+	
+	self assert: day3 sumOfPartNumbers equals: 4361
+]
+
+{ #category : #tests }
+AdventOfCodeTests >> testDay3Part2Example [
+
+	| input day3 |
+	
+	input := '467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..'.
+
+	day3 := Day3Schematic fromStream: input readStream.
+	
+	self assert: day3 totalGearRatio equals: 467835
 ]
