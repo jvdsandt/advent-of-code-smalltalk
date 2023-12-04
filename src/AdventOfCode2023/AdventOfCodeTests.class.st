@@ -57,6 +57,18 @@ AdventOfCodeTests >> day3CalcPart2 [
 	^ day3 totalGearRatio 
 ]
 
+{ #category : #calculating }
+AdventOfCodeTests >> day4CalcPart1 [
+	"self new day4CalcPart1"
+
+	| day3|
+	
+	day3 := self baseDirectory / 'day4_input.txt' readStreamDo: [ :stream |
+		Day4 allFrom: stream ].
+
+	^ day3 inject: 0 into: [ :sum :each | sum + each points ]
+]
+
 { #category : #tests }
 AdventOfCodeTests >> testDay1PartOne [
 
@@ -138,4 +150,23 @@ AdventOfCodeTests >> testDay3Part2Example [
 	day3 := Day3Schematic fromStream: input readStream.
 	
 	self assert: day3 totalGearRatio equals: 467835
+]
+
+{ #category : #tests }
+AdventOfCodeTests >> testDay4Part1Example [
+
+	| input coll |
+	
+	input := 'Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
+Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
+Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
+Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83
+Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
+Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11'.
+	
+	coll := Day4 readFrom: input readStream.
+	
+	coll inject: 0 into: [ :sum :each | sum + each points ]
+	
+	
 ]
