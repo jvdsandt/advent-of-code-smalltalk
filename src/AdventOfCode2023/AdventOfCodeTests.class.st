@@ -5,8 +5,13 @@ Class {
 }
 
 { #category : #accessing }
-AdventOfCodeTests >> baseDirectory [
+AdventOfCodeTests class >> baseDirectory [
 	^ FileSystem workingDirectory / 'pharo-local/iceberg/jvdsandt/advent-of-code-smalltalk/data'
+]
+
+{ #category : #accessing }
+AdventOfCodeTests >> baseDirectory [
+	^ self class baseDirectory
 ]
 
 { #category : #calculating }
