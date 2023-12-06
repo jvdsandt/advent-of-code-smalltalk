@@ -1,12 +1,22 @@
 Class {
 	#name : #AdventOfCodeTests,
 	#superclass : #TestCase,
+	#classInstVars : [
+		'baseDirectory'
+	],
 	#category : #AdventOfCode2023
 }
 
 { #category : #accessing }
 AdventOfCodeTests class >> baseDirectory [
-	^ FileSystem workingDirectory / 'pharo-local/iceberg/jvdsandt/advent-of-code-smalltalk/data'
+
+	^ baseDirectory ifNil: [ FileSystem workingDirectory ]
+]
+
+{ #category : #accessing }
+AdventOfCodeTests class >> baseDirectory: aDir [
+
+	baseDirectory := aDir asFileReference 
 ]
 
 { #category : #accessing }
