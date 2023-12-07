@@ -8,6 +8,45 @@ Class {
 	#category : #AdventOfCode2023
 }
 
+{ #category : #examples }
+Day6 class >> examplePart1 [	
+
+	^ AOC2023 baseDirectory / 'day6_input.txt' readStreamDo: [ :stream |
+			(self readAllFrom: stream) inject: 1 into: [ :prod :each | prod * each winCount ] ]
+
+]
+
+{ #category : #examples }
+Day6 class >> examplePart1Demo [	
+
+	| input |
+	
+	input := 'Time:      7  15   30
+Distance:  9  40  200'.
+	^ (self readAllFrom: input readStream) 
+			inject: 1 into: [ :prod :each | prod * each winCount ]
+
+]
+
+{ #category : #examples }
+Day6 class >> examplePart2 [
+
+	^ AOC2023 baseDirectory / 'day6_input.txt' readStreamDo: [ :stream |
+			(self readBigFrom: stream) winCount ]
+
+]
+
+{ #category : #examples }
+Day6 class >> examplePart2Demo [
+
+	| input |
+	
+	input := 'Time:      7  15   30
+Distance:  9  40  200'.
+	^ (self readBigFrom: input readStream)  winCount
+
+]
+
 { #category : #'instance creation' }
 Day6 class >> readAllFrom: stream [
 
@@ -50,52 +89,7 @@ Day6 class >> readBigNumber: line [
 { #category : #utilities }
 Day6 class >> readNumbers: line [
 
-	| str coll |
-	
-	str := line readStream.
-	coll := OrderedCollection new.
-	str skipSeparators.
-	[  str atEnd ] whileFalse: [ coll add: (str upTo: Character space) asInteger. str skipSeparators  ].
-	^ coll
-]
-
-{ #category : #examples }
-Day6 class >> testExamplePart1 [
-
-	| input |
-	
-	input := 'Time:      7  15   30
-Distance:  9  40  200'.
-	^ (self readAllFrom: input readStream) 
-			inject: 1 into: [ :prod :each | prod * each winCount ]
-
-]
-
-{ #category : #examples }
-Day6 class >> testExamplePart2 [
-
-	| input |
-	
-	input := 'Time:      7  15   30
-Distance:  9  40  200'.
-	^ (self readBigFrom: input readStream)  winCount
-
-]
-
-{ #category : #examples }
-Day6 class >> testPart1 [	
-
-	^ AdventOfCodeTests baseDirectory / 'day6_input.txt' readStreamDo: [ :stream |
-			(self readAllFrom: stream) inject: 1 into: [ :prod :each | prod * each winCount ] ]
-
-]
-
-{ #category : #examples }
-Day6 class >> testPart2 [
-
-	^ AdventOfCodeTests baseDirectory / 'day6_input.txt' readStreamDo: [ :stream |
-			(self readBigFrom: stream) winCount ]
-
+	^ AOC2023 readNumbers: line
 ]
 
 { #category : #'as yet unclassified' }

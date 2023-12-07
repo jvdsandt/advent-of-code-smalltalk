@@ -1,27 +1,12 @@
 Class {
 	#name : #AdventOfCodeTests,
 	#superclass : #TestCase,
-	#classInstVars : [
-		'baseDirectory'
-	],
 	#category : #AdventOfCode2023
 }
 
 { #category : #accessing }
-AdventOfCodeTests class >> baseDirectory [
-
-	^ baseDirectory ifNil: [ FileSystem workingDirectory ]
-]
-
-{ #category : #accessing }
-AdventOfCodeTests class >> baseDirectory: aDir [
-
-	baseDirectory := aDir asFileReference 
-]
-
-{ #category : #accessing }
 AdventOfCodeTests >> baseDirectory [
-	^ self class baseDirectory
+	^ AOC2023 baseDirectory
 ]
 
 { #category : #calculating }
