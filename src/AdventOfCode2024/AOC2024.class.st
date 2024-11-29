@@ -16,7 +16,7 @@ AOC2024 class >> baseDirectory [
 { #category : #accessing }
 AOC2024 class >> baseDirectory: aString [
 
-	BaseDirectory := aString
+	BaseDirectory := aString asFileReference 
 ]
 
 { #category : #accessing }
@@ -29,5 +29,5 @@ AOC2024 >> baseDirectory [
 AOC2024 >> testBaseDirectory [
 	"AOC2024 baseDirectory: 'C:\Stuff\AoC_2024'"
 	
-	self assert: self baseDirectory asFileReference exists
+	self assert: self baseDirectory exists
 ]

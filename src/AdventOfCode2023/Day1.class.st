@@ -23,7 +23,7 @@ Day1 class >> day1DigitFrom: line using: markers [
 
 { #category : #day1 }
 Day1 class >> day1PartOne: stream [
-	"'/Users/jan/Projects/AdventOfCode2023/day1_input.txt' asFileReference 
+	"AOC2023 baseDirectory / 'day01' / 'input.txt'
 		readStreamDo: [ :stream | self day1PartOne: stream ]"
 
 	| sum |
@@ -47,7 +47,7 @@ xtwone3four
 zoneight234
 7pqrstsixteen' readStream"
 
-	"'/Users/jan/Projects/AdventOfCode2023/day1_input.txt' asFileReference 
+	"AOC2023 baseDirectory / 'day01' / 'input.txt'
 		readStreamDo: [ :stream | self day1PartTwo: stream ]"
 
 	| sum numbers revnumbers |
