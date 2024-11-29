@@ -1,10 +1,11 @@
 Class {
-	#name : #Day8,
-	#superclass : #Object,
-	#category : #AdventOfCode2023
+	#name : 'Day8',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day8 class >> examplePart1 [
 
  	| directions points currLoc steps dirIndex |
@@ -38,7 +39,7 @@ Day8 class >> examplePart1 [
 	steps
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day8 class >> examplePart2 [
 
  	| directions points list lcm |

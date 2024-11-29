@@ -29,6 +29,7 @@ AOC2024 >> baseDirectory [
 { #category : 'tests' }
 AOC2024 >> testBaseDirectory [
 	"AOC2024 baseDirectory: 'C:\Stuff\AoC_2024'"
+	"AOC2024 baseDirectory: '/Users/jan/Projects/AdventOfCode2024'"
 	
 	self assert: self baseDirectory exists
 ]

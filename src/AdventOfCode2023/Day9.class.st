@@ -1,10 +1,11 @@
 Class {
-	#name : #Day9,
-	#superclass : #Object,
-	#category : #AdventOfCode2023
+	#name : 'Day9',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day9 class >> examplePart1 [
 
  	| numberLines tot |
@@ -31,7 +32,7 @@ Day9 class >> examplePart1 [
 	^ tot
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day9 class >> examplePart2 [
 
  	| numberLines |

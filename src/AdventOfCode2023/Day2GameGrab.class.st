@@ -1,15 +1,16 @@
 Class {
-	#name : #Day2GameGrab,
-	#superclass : #Object,
+	#name : 'Day2GameGrab',
+	#superclass : 'Object',
 	#instVars : [
 		'nrRed',
 		'nrBlue',
 		'nrGreen'
 	],
-	#category : #AdventOfCode2023
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Day2GameGrab class >> from: input [
 	"self from: '8 green, 6 blue, 20 red'"
 
@@ -29,36 +30,36 @@ Day2GameGrab class >> from: input [
 		  blue: (map at: 'blue' ifAbsent: [ 0 ])
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Day2GameGrab class >> red: nrRed green: nrGreen blue: nrBlue [
 
 	^ self new red: nrRed green: nrGreen blue: nrBlue 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day2GameGrab >> nrBlue [
 
 	^ nrBlue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day2GameGrab >> nrGreen [
 
 	^ nrGreen
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day2GameGrab >> nrRed [
 
 	^ nrRed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day2GameGrab >> power [
 	^ nrRed * nrGreen * nrBlue 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Day2GameGrab >> red: aNrRed green: aNrGreen blue: aNrBlue [
 
 	nrRed := aNrRed.

@@ -1,10 +1,11 @@
 Class {
-	#name : #Day10,
-	#superclass : #Object,
-	#category : #AdventOfCode2023
+	#name : 'Day10',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day10 class >> part1 [
 	"self part1"
 
@@ -52,7 +53,7 @@ Day10 class >> part1 [
 	^ steps
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day10 class >> part2 [
 	"self part2"
 

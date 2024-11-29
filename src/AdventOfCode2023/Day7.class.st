@@ -1,14 +1,15 @@
 Class {
-	#name : #Day7,
-	#superclass : #Object,
+	#name : 'Day7',
+	#superclass : 'Object',
 	#instVars : [
 		'hand',
 		'bid'
 	],
-	#category : #AdventOfCode2023
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #resources }
+{ #category : 'resources' }
 Day7 class >> demoData [
 
 	^'32T3K 765
@@ -18,7 +19,7 @@ KTJJT 220
 QQQJA 483'
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day7 class >> examplePart1 [
  | sum coll |
 
@@ -31,7 +32,7 @@ Day7 class >> examplePart1 [
 	"256448566"
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day7 class >> examplePart1Demo [
 
 	| sum |
@@ -44,7 +45,7 @@ Day7 class >> examplePart1Demo [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day7 class >> examplePart2 [
 
  	| sum coll |
@@ -56,7 +57,7 @@ Day7 class >> examplePart2 [
 	^ sum    "254412181"
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day7 class >> examplePart2Demo [
 
 	| sum |
@@ -69,7 +70,7 @@ Day7 class >> examplePart2Demo [
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Day7 class >> fromLine: line [
 
 	| str |
@@ -78,7 +79,7 @@ Day7 class >> fromLine: line [
 	^ self new hand: (str upTo: Character space) bid: str nextLine asInteger
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Day7 class >> readAllFrom: stream [
 
 	| coll |
@@ -89,7 +90,7 @@ Day7 class >> readAllFrom: stream [
 	^ coll
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Day7 >> <= other [
 
 	| rd |
@@ -106,77 +107,77 @@ Day7 >> <= other [
 	self error: 'unexpected!'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day7 >> bid [
 
 	^ bid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day7 >> cards [
 
 	^'23456789TJQKA'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day7 >> hand [
 
 	^ hand
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day7 >> hand: h bid: b [
 	hand := h.
 	bid := b
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7 >> isFiveOfAKind [
 
 	^ self sortedCounts size = 1
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7 >> isFourOfAKind [
 
 	^ self sortedCounts first key = 4
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7 >> isFullHouse [
 
 	^ (self sortedCounts first key = 3) and: [ 
 		 self sortedCounts second key = 2]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7 >> isHighCard [
 
 	^ self sortedCounts size = 5
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7 >> isOnePair [
 
 	^ (self sortedCounts first key = 2) and: [ 
 		 self sortedCounts size = 4]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7 >> isThreeOfAKind [
 
 	^ (self sortedCounts first key = 3) and: [ 
 		 self sortedCounts size = 3]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7 >> isTwoPair [
 
 	^ (self sortedCounts first key = 2) and: [ 
 		 self sortedCounts size = 3]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Day7 >> printOn: aStream [
 
 	aStream nextPutAll: hand; 
@@ -185,13 +186,13 @@ Day7 >> printOn: aStream [
 		nextPutAll: ' (', self typeRank asString, ')'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7 >> sortedCounts [
 
 	^ hand asBag sortedCounts
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7 >> typeRank [
 
 	self isFiveOfAKind ifTrue: [  ^6 ].

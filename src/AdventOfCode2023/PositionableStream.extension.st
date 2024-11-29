@@ -1,6 +1,6 @@
-Extension { #name : #PositionableStream }
+Extension { #name : 'PositionableStream' }
 
-{ #category : #'*AdventOfCode2023' }
+{ #category : '*AdventOfCode2023' }
 PositionableStream >> linesCollect: aBlock [
 
 	| coll |
