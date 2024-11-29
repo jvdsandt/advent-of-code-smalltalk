@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 AdventOfCodeTests >> baseDirectory [
-	^ FileSystem workingDirectory / 'pharo-local/iceberg/jvdsandt/advent-of-code-smalltalk/data'
+	^ AOC2023 baseDirectory
 ]
 
 { #category : #calculating }
