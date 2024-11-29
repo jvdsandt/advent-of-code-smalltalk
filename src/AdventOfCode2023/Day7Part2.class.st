@@ -1,16 +1,17 @@
 Class {
-	#name : #Day7Part2,
-	#superclass : #Day7,
-	#category : #AdventOfCode2023
+	#name : 'Day7Part2',
+	#superclass : 'Day7',
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day7Part2 >> cards [
 
 	^'J23456789TQKA'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day7Part2 >> sortedCounts [
 
 	| counts ch |

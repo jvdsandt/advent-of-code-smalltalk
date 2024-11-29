@@ -1,10 +1,11 @@
 Class {
-	#name : #Day11,
-	#superclass : #Object,
-	#category : #AdventOfCode2023
+	#name : 'Day11',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day11 class >> calcDistances: delta [
 
  	| points maxx maxy emptyCols emptyRows colDeltas rowDeltas sum |
@@ -54,14 +55,14 @@ Day11 class >> calcDistances: delta [
 	^ sum
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day11 class >> part1 [
 	"self part1"
 
 	^ self calcDistances: 1
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day11 class >> part2 [
 	"self part2"
 

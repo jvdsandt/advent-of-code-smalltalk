@@ -1,15 +1,16 @@
 Class {
-	#name : #Day4,
-	#superclass : #Object,
+	#name : 'Day4',
+	#superclass : 'Object',
 	#instVars : [
 		'id',
 		'numbers',
 		'winningNumbers'
 	],
-	#category : #AdventOfCode2023
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day4 class >> allFrom: stream [
 
 	| coll |
@@ -23,7 +24,7 @@ Day4 class >> allFrom: stream [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day4 class >> fromLine: input [
 
 	| stream id numbers winningNumbers |
@@ -39,7 +40,7 @@ Day4 class >> fromLine: input [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day4 class >> readNumbers: input [
 
 	| nrs str |
@@ -49,14 +50,14 @@ Day4 class >> readNumbers: input [
 	^ nrs
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day4 >> id: anId numbers: c1 winningNumbers: c2 [	
 	id := anId.
 	numbers := c1.
 	winningNumbers := c2 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day4 >> points [
 
 	| p |

@@ -1,13 +1,14 @@
 Class {
-	#name : #Day3Schematic,
-	#superclass : #Object,
+	#name : 'Day3Schematic',
+	#superclass : 'Object',
 	#instVars : [
 		'lines'
 	],
-	#category : #AdventOfCode2023
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Day3Schematic class >> fromStream: stream [
 
 	| lines |
@@ -19,7 +20,7 @@ Day3Schematic class >> fromStream: stream [
 		yourself
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day3Schematic >> isNumberAdjacent: input before: aPoint [
 
 	(aPoint x - input size - 1) to: aPoint x do: [ :x |
@@ -31,19 +32,19 @@ Day3Schematic >> isNumberAdjacent: input before: aPoint [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day3Schematic >> lines [
 
 	^ lines
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day3Schematic >> lines: anObject [
 
 	lines := anObject
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 Day3Schematic >> numberRectangles [
 
 	| rectangles |
@@ -66,7 +67,7 @@ Day3Schematic >> numberRectangles [
 	^ rectangles
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 Day3Schematic >> partNumbers [
 
 	| numbers |
@@ -90,7 +91,7 @@ Day3Schematic >> partNumbers [
 	^ numbers
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day3Schematic >> rect: aRect touches: otherRect [
 
 	^ ((aRect origin x between: otherRect origin x and: otherRect corner x) or: [ 
@@ -99,13 +100,13 @@ Day3Schematic >> rect: aRect touches: otherRect [
 				 aRect corner y between: otherRect origin y and: otherRect corner y ] ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 Day3Schematic >> sumOfPartNumbers [
 
 	^ self partNumbers inject: 0 into: [ :nr :sum | nr + sum ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 Day3Schematic >> totalGearRatio [
 
 	| map sum |
@@ -124,7 +125,7 @@ Day3Schematic >> totalGearRatio [
 	^ sum
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day3Schematic >> valueAt: aPoint [
 
 	| line |

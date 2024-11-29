@@ -1,15 +1,16 @@
 Class {
-	#name : #AdventOfCodeTests,
-	#superclass : #TestCase,
-	#category : #AdventOfCode2023
+	#name : 'AdventOfCodeTests',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AdventOfCodeTests >> baseDirectory [
 	^ AOC2023 baseDirectory
 ]
 
-{ #category : #calculating }
+{ #category : 'calculating' }
 AdventOfCodeTests >> day2CountPossibleGames: stream [
 
 	| games sum |
@@ -23,7 +24,7 @@ AdventOfCodeTests >> day2CountPossibleGames: stream [
 	^ sum
 ]
 
-{ #category : #calculating }
+{ #category : 'calculating' }
 AdventOfCodeTests >> day2CountPowerOfFewestCubes: stream [
 	"'/Users/jan/Projects/AdventOfCode2023/day2_input.txt' asFileReference
 		readStreamDo: [ :stream | self new countPowerOfFewestCubes: stream ]."
@@ -33,7 +34,7 @@ AdventOfCodeTests >> day2CountPowerOfFewestCubes: stream [
 	^ games inject: 0 into: [ :sum :each | sum + each minGrab power ]
 ]
 
-{ #category : #calculating }
+{ #category : 'calculating' }
 AdventOfCodeTests >> day3CalcPart1 [
 	"self new calcDay3Part1"
 
@@ -45,7 +46,7 @@ AdventOfCodeTests >> day3CalcPart1 [
 	^ day3 sumOfPartNumbers
 ]
 
-{ #category : #calculating }
+{ #category : 'calculating' }
 AdventOfCodeTests >> day3CalcPart2 [
 	"self new calcDay3Part2"
 
@@ -57,7 +58,7 @@ AdventOfCodeTests >> day3CalcPart2 [
 	^ day3 totalGearRatio 
 ]
 
-{ #category : #calculating }
+{ #category : 'calculating' }
 AdventOfCodeTests >> day4CalcPart1 [
 	"self new day4CalcPart1"
 
@@ -69,7 +70,7 @@ AdventOfCodeTests >> day4CalcPart1 [
 	^ day3 inject: 0 into: [ :sum :each | sum + each points ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AdventOfCodeTests >> testDay1PartOne [
 
 	| count |
@@ -80,7 +81,7 @@ AdventOfCodeTests >> testDay1PartOne [
 	self assert: count equals: 55130
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AdventOfCodeTests >> testDay1PartTwo [
 
 	| count |
@@ -91,7 +92,15 @@ AdventOfCodeTests >> testDay1PartTwo [
 	self assert: count equals: 54985
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
+AdventOfCodeTests >> testDay21Part1 [
+
+	self assert: Day21 new part1 equals: 3768.
+	
+	
+]
+
+{ #category : 'tests' }
 AdventOfCodeTests >> testDay2CountPossibleGames [
 
 	| count |
@@ -101,7 +110,7 @@ AdventOfCodeTests >> testDay2CountPossibleGames [
 	self assert: count equals: 2268
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AdventOfCodeTests >> testDay2PowerOfFewestCubes [
 	| count |
 	count := self baseDirectory / 'day2_input.txt' readStreamDo: [ :stream |
@@ -110,7 +119,7 @@ AdventOfCodeTests >> testDay2PowerOfFewestCubes [
 	self assert: count equals: 63542
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AdventOfCodeTests >> testDay3Part1Example [
 
 	| input day3 |
@@ -131,7 +140,7 @@ AdventOfCodeTests >> testDay3Part1Example [
 	self assert: day3 sumOfPartNumbers equals: 4361
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AdventOfCodeTests >> testDay3Part2Example [
 
 	| input day3 |
@@ -152,7 +161,7 @@ AdventOfCodeTests >> testDay3Part2Example [
 	self assert: day3 totalGearRatio equals: 467835
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AdventOfCodeTests >> testDay4Part1Example [
 
 	| input coll |

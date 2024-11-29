@@ -1,14 +1,15 @@
 Class {
-	#name : #Day2Game,
-	#superclass : #Object,
+	#name : 'Day2Game',
+	#superclass : 'Object',
 	#instVars : [
 		'id',
 		'grabs'
 	],
-	#category : #AdventOfCode2023
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Day2Game class >> fromLine: input [
 	"self fromLine: 'Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red'"
 
@@ -25,7 +26,7 @@ Day2Game class >> fromLine: input [
 	^ self new id: id grabs: grabs
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Day2Game class >> readAllFrom: stream [
 
 	| coll |
@@ -35,26 +36,26 @@ Day2Game class >> readAllFrom: stream [
 	^coll
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day2Game >> grabs [
 
 	^ grabs
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day2Game >> id [
 
 	^ id
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Day2Game >> id: anId grabs: aColl [
 
 	id := anId.
 	grabs := aColl
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Day2Game >> isPossibleWithRed: maxRed green: maxGreen blue: maxBlue [
 
 	^ self grabs allSatisfy: [ :each |
@@ -62,7 +63,7 @@ Day2Game >> isPossibleWithRed: maxRed green: maxGreen blue: maxBlue [
 			  each nrGreen <= maxGreen and: [ each nrBlue <= maxBlue ] ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Day2Game >> minGrab [
 
 	| minRed minGreen minBlue |

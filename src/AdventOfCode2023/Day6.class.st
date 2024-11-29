@@ -1,14 +1,15 @@
 Class {
-	#name : #Day6,
-	#superclass : #Object,
+	#name : 'Day6',
+	#superclass : 'Object',
 	#instVars : [
 		'time',
 		'distance'
 	],
-	#category : #AdventOfCode2023
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day6 class >> examplePart1 [	
 
 	^ AOC2023 baseDirectory / 'day6_input.txt' readStreamDo: [ :stream |
@@ -16,7 +17,7 @@ Day6 class >> examplePart1 [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day6 class >> examplePart1Demo [	
 
 	| input |
@@ -28,7 +29,7 @@ Distance:  9  40  200'.
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day6 class >> examplePart2 [
 
 	^ AOC2023 baseDirectory / 'day6_input.txt' readStreamDo: [ :stream |
@@ -36,7 +37,7 @@ Day6 class >> examplePart2 [
 
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day6 class >> examplePart2Demo [
 
 	| input |
@@ -47,7 +48,7 @@ Distance:  9  40  200'.
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Day6 class >> readAllFrom: stream [
 
 	| times distances |
@@ -61,7 +62,7 @@ Day6 class >> readAllFrom: stream [
 		self new time: each distance: (distances at: index) ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Day6 class >> readBigFrom: stream [
 
 	| time distance |
@@ -74,7 +75,7 @@ Day6 class >> readBigFrom: stream [
 	^ self new time: time distance: distance 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 Day6 class >> readBigNumber: line [
 
 	| str out |
@@ -86,13 +87,13 @@ Day6 class >> readBigNumber: line [
 	^ out contents asInteger
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 Day6 class >> readNumbers: line [
 
 	^ AOC2023 readNumbers: line
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day6 >> fastestTime [
 
 	| firstX lastX |
@@ -101,7 +102,7 @@ Day6 >> fastestTime [
 	lastX := (time + ((time raisedTo: 2) - (4 * distance)) sqrt) / 2.0.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day6 >> ranges [
 
 	| firstX lastX |
@@ -112,14 +113,14 @@ Day6 >> ranges [
 	^ (firstX + 0.0001) ceiling to: (lastX - 0.0001) floor
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day6 >> time: t distance: d [
 
 	time := t.
 	distance := d
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Day6 >> winCount [
 
 	^ self ranges size

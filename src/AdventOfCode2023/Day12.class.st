@@ -1,6 +1,6 @@
 Class {
-	#name : #Day12,
-	#superclass : #Object,
+	#name : 'Day12',
+	#superclass : 'Object',
 	#instVars : [
 		'line',
 		'numbers'
@@ -8,10 +8,11 @@ Class {
 	#classVars : [
 		'Cache'
 	],
-	#category : #AdventOfCode2023
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day12 class >> fromLine: input [
 
 	| str line numbers |
@@ -24,7 +25,7 @@ Day12 class >> fromLine: input [
 		yourself
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day12 class >> part1 [ 
 
 	| coll |
@@ -39,7 +40,7 @@ Day12 class >> part1 [
 	  coll inject: 0 into: [ :sum :each | sum + each count ] ] ensure: [ Cache := nil ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 Day12 class >> part2 [
 
 	| coll |
@@ -56,7 +57,7 @@ Day12 class >> part2 [
 	  coll inject: 0 into: [ :sum :each | sum + each count ] ] ensure: [ Cache := nil ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 Day12 >> calcHs: input numbers: array [
 
 	| sz |
@@ -84,13 +85,13 @@ Day12 >> calcHs: input numbers: array [
 	^ self count: (input allButFirst: sz+1) numbers: array allButFirst
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 Day12 >> count [
 
 	^ self count: line numbers: numbers
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 Day12 >> count: input numbers: array [
 
 	input isEmpty
@@ -114,7 +115,7 @@ Day12 >> count: input numbers: array [
 					
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 Day12 >> hs: input numbers: array [
 
 	| key |
@@ -123,13 +124,13 @@ Day12 >> hs: input numbers: array [
 	^ Cache at: key ifAbsentPut: [ self calcHs: input numbers: array ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Day12 >> line: l numbers: n [
 	line := l.
 	numbers := n
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 Day12 >> unfold [
 
 	| str |

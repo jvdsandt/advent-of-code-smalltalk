@@ -1,10 +1,11 @@
 Class {
-	#name : #Day1,
-	#superclass : #Object,
-	#category : #AdventOfCode2023
+	#name : 'Day1',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #day1 }
+{ #category : 'day1' }
 Day1 class >> day1DigitFrom: line using: markers [
 
 	| index marker |
@@ -21,7 +22,7 @@ Day1 class >> day1DigitFrom: line using: markers [
 		  ifNotNil: [ (markers indexOf: marker) asString first ]
 ]
 
-{ #category : #day1 }
+{ #category : 'day1' }
 Day1 class >> day1PartOne: stream [
 	"AOC2023 baseDirectory / 'day01' / 'input.txt'
 		readStreamDo: [ :stream | self day1PartOne: stream ]"
@@ -37,7 +38,7 @@ Day1 class >> day1PartOne: stream [
 	^ sum
 ]
 
-{ #category : #day1 }
+{ #category : 'day1' }
 Day1 class >> day1PartTwo: stream [
 	"self day1PartTwo: 'two1nine
 eightwothree

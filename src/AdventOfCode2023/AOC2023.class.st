@@ -1,26 +1,27 @@
 Class {
-	#name : #AOC2023,
-	#superclass : #TestCase,
+	#name : 'AOC2023',
+	#superclass : 'TestCase',
 	#classVars : [
 		'BaseDirectory'
 	],
-	#category : #AdventOfCode2023
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AOC2023 class >> baseDirectory [
 
 	^ BaseDirectory ifNil: [ FileSystem workingDirectory ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AOC2023 class >> baseDirectory: aDir [
 	"AOC2023 baseDirectory: 'C:\Stuff\AoC_2023'"
 
 	BaseDirectory := aDir asFileReference 
 ]
 
-{ #category : #utilities }
+{ #category : 'utilities' }
 AOC2023 class >> readNumbers: line [
 	"self readNumbers: ' 12 13   14 15'"
 

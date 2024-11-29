@@ -1,7 +1,7 @@
-Extension { #name : 'PositionableStream' }
+Extension { #name : 'ZnCharacterReadStream' }
 
 { #category : '*AdventOfCode2023' }
-PositionableStream >> linesCollect: aBlock [
+ZnCharacterReadStream >> linesCollect: aBlock [
 
 	| coll |
 	
