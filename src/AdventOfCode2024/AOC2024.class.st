@@ -21,19 +21,43 @@ AOC2024 class >> baseDirectory: aString [
 ]
 
 { #category : 'accessing' }
+AOC2024 class >> inputDay01 [
+
+	^ self inputDay: 1
+]
+
+{ #category : 'accessing' }
+AOC2024 class >> inputDay02 [
+
+	^ self inputDay: 2
+]
+
+{ #category : 'accessing' }
+AOC2024 class >> inputDay03 [
+
+	^ self inputDay: 3
+]
+
+{ #category : 'accessing' }
+AOC2024 class >> inputDay: aNumber [
+
+	^ self baseDirectory / ('day', (aNumber printStringLength: 2 padded: true)) / 'input.txt'
+]
+
+{ #category : 'accessing' }
 AOC2024 >> baseDirectory [
 
 	^ self class baseDirectory
 ]
 
-{ #category : 'accessing' }
+{ #category : 'actions' }
 AOC2024 >> day01part1 [
 	"self new day01part1"
 
 	| list1 list2 sum |
 	list1 := OrderedCollection new.
 	list2 := OrderedCollection new.
-	AOC2024 baseDirectory / 'day01' / 'input.txt' readStreamDo: [ :s |
+	AOC2024 inputDay01 readStreamDo: [ :s |
 		[ s atEnd ] whileFalse: [
 			| line |
 			line := s nextLine asIntegers.
@@ -47,14 +71,14 @@ AOC2024 >> day01part1 [
 	^ sum
 ]
 
-{ #category : 'accessing' }
+{ #category : 'actions' }
 AOC2024 >> day01part2 [
 	"self new day01part2"
 
 	| list1 list2 sum |
 	list1 := OrderedCollection new.
 	list2 := OrderedCollection new.
-	AOC2024 baseDirectory / 'day01' / 'input.txt' readStreamDo: [ :s |
+	AOC2024 inputDay01 readStreamDo: [ :s |
 		[ s atEnd ] whileFalse: [
 			| line |
 			line := s nextLine asIntegers.
