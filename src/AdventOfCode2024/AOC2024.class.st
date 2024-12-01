@@ -57,12 +57,11 @@ AOC2024 >> day01part1 [
 	| list1 list2 sum |
 	list1 := OrderedCollection new.
 	list2 := OrderedCollection new.
-	AOC2024 inputDay01 readStreamDo: [ :s |
-		[ s atEnd ] whileFalse: [
-			| line |
-			line := s nextLine asIntegers.
-			list1 add: line first.
-			list2 add: line last ] ].
+	AOC2024 inputDay01 linesDo: [ :each |
+		| nrs |
+		nrs := each substrings collect: [ :s | s asInteger ].
+		list1 add: nrs first.
+		list2 add: nrs last ].
 
 	list1 := list1 sorted.
 	list2 := list2 sorted.
@@ -78,12 +77,11 @@ AOC2024 >> day01part2 [
 	| list1 list2 sum |
 	list1 := OrderedCollection new.
 	list2 := OrderedCollection new.
-	AOC2024 inputDay01 readStreamDo: [ :s |
-		[ s atEnd ] whileFalse: [
-			| line |
-			line := s nextLine asIntegers.
-			list1 add: line first.
-			list2 add: line last ] ].
+	AOC2024 inputDay01 linesDo: [ :each |
+		| nrs |
+		nrs := each substrings collect: [ :s | s asInteger ].
+		list1 add: nrs first.
+		list2 add: nrs last ].
 
 	sum := 0.
 	list1 do: [ :each |
