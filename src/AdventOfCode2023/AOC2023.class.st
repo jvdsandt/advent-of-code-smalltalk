@@ -17,6 +17,7 @@ AOC2023 class >> baseDirectory [
 { #category : 'accessing' }
 AOC2023 class >> baseDirectory: aDir [
 	"AOC2023 baseDirectory: 'C:\Stuff\AoC_2023'"
+	"AOC2023 baseDirectory: '/Users/jan/Projects/AdventOfCode2023'"
 
 	BaseDirectory := aDir asFileReference 
 ]
