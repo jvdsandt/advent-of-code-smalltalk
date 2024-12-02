@@ -9,3 +9,9 @@ PositionableStream >> linesCollect: aBlock [
 	[ self atEnd ] whileFalse: [ coll add: (aBlock value: self nextLine) ].
 	^ coll
 ]
+
+{ #category : '*AdventOfCode2023' }
+PositionableStream >> linesDo: aBlock [
+
+	[ self atEnd ] whileFalse: [ aBlock value: self nextLine ]
+]
