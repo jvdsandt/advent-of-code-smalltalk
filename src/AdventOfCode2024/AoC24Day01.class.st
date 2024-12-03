@@ -1,3 +1,6 @@
+"
+Advent of Code day 1
+"
 Class {
 	#name : 'AoC24Day01',
 	#superclass : 'Object',
