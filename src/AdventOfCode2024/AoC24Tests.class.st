@@ -51,3 +51,15 @@ AoC24Tests >> testDay02 [
 	self assert: (AoC24Day02 part1: data readStream) equals: 2.
 	self assert: (AoC24Day02 part2: data readStream) equals: 4
 ]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay03 [
+
+	| data |
+	
+	data := 'xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))'.
+	self assert: (AoC24Day03 part1: data readStream) equals: 161.
+	
+	data := 'xmul(2,4)&mul[3,7]!^don''t()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))'.
+	self assert: (AoC24Day03 part2: data readStream) equals: 48
+]
