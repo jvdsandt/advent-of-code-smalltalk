@@ -1,0 +1,78 @@
+Class {
+	#name : 'AoC24MatrixTests',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
+}
+
+{ #category : 'tests' }
+AoC24MatrixTests >> testBasics [
+
+	| matrix |
+	
+	matrix := self xmasMatrix.
+
+	self assert: matrix maxX equals: 10.
+	self assert: matrix maxY equals: 10.
+	self assert: (matrix at: 1 @ 1) equals: $M.
+	self assert: (matrix at: 10 @ 10) equals: $X.
+	
+	self should: [ matrix at: 11 @ 11 ] raise: SubscriptOutOfBounds
+
+]
+
+{ #category : 'tests' }
+AoC24MatrixTests >> testCountWord [
+
+	| matrix |
+	
+	matrix := self xmasMatrix.
+
+	self assert: (matrix countWord: 'XMAS' at: 1 @ 4) equals: 0.
+	self assert: (matrix countWord: 'XMAS' at: 1 @ 5) equals: 1.
+	self assert: (matrix countWord: 'XMAS' at: 1 @ 6) equals: 1.
+	self assert: (matrix countWord: 'XMAS' at: 10 @ 10) equals: 2.
+	
+	self assert: (matrix countWord: 'XMAS') equals: 18.
+	
+	self assert: (matrix countWord: 'XMAS' at: 11 @ 4) equals: 0.
+	self assert: (matrix countWord: 'XMAS' at: 0 @ 0) equals: 0.
+	self assert: (matrix countWord: 'XMAS' at: -10 @ 99) equals: 0.
+
+	self assert: (matrix countWord: 'M' at: 10 @ 1 dir: 1 @ 1) equals: 1.
+	self assert: (matrix countWord: 'M' at: 10 @ 1) equals: 8.
+	self assert: (matrix countWord: 'Q' at: 10 @ 1) equals: 0.
+	
+	self assert: (matrix countWord: 'MMMSXXMASM') equals: 1
+	
+	
+
+]
+
+{ #category : 'tests' }
+AoC24MatrixTests >> testWordAt [
+
+	| matrix |
+	
+	matrix := self xmasMatrix.
+
+	self assert: (matrix wordAt: 6 @ 1 size: 4 dir: 1 @ 0) equals: 'XMAS'.
+	self assert: (matrix wordAt: 10 @ 4 size: 4 dir: 0 @ 1) equals: 'XMAS'.
+	self assert: (matrix wordAt: 10 @ 10 size: 4 dir: 1 @ 1) equals: 'X'.
+
+]
+
+{ #category : 'tests' }
+AoC24MatrixTests >> xmasMatrix [
+
+	^ AoCMatrix from: 'MMMSXXMASM
+MSAMXMSMSA
+AMXSXMAAMM
+MSAMASMSMX
+XMASAMXAMM
+XXAMMXXAMA
+SMSMSASXSS
+SAXAMASAAA
+MAMMMXMMMM
+MXMXAXMASX' readStream
+]

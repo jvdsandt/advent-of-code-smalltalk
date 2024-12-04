@@ -1,0 +1,136 @@
+Class {
+	#name : 'AoCMatrix',
+	#superclass : 'Object',
+	#instVars : [
+		'rows',
+		'maxX',
+		'maxY'
+	],
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
+}
+
+{ #category : 'instance creation' }
+AoCMatrix class >> from: aReadStream [
+
+	^ self new initRows: (aReadStream linesCollect: [ :each | each]) asArray
+]
+
+{ #category : 'accessing' }
+AoCMatrix >> allDirections [
+
+	^ { 1 @ 0. 1 @ 1. 0 @ 1. -1 @ 1. -1 @ 0. -1 @ -1. 0 @ -1. 1 @ -1 }
+]
+
+{ #category : 'accessing' }
+AoCMatrix >> at: aPoint [
+
+	^ (rows at: aPoint y) at: aPoint x
+]
+
+{ #category : 'iterating' }
+AoCMatrix >> at: aPoint dir: dirPoint do: aBlock [
+
+	| p counter |
+	
+	dirPoint = (0 @ 0)
+		ifTrue: [ self error: 'Invalid direction' ].
+	
+	p := aPoint.
+	counter := 0.
+	[ self isInside: p ]
+		whileTrue: [ 
+			counter := counter + 1.
+			aBlock cull: (self at: p) cull: p cull: counter.
+			p := p + dirPoint ]
+]
+
+{ #category : 'accessing' }
+AoCMatrix >> at: aPoint ifOutside: aBlock [
+
+	^ (self isInside: aPoint)
+		ifTrue: [ self at: aPoint ]
+		ifFalse: [ aBlock value ]
+]
+
+{ #category : 'counting' }
+AoCMatrix >> countWord: word [
+
+	| sum |
+	
+	sum := 0.
+	self doWithCells: [ :each :point |
+		(self at: point) = word first
+			ifTrue: [ sum := sum + (self countWord: word at: point) ] ].
+	^ sum
+]
+
+{ #category : 'counting' }
+AoCMatrix >> countWord: word at: aPoint [
+
+	^ (self allDirections collect: [ :eachDir | self countWord: word at: aPoint dir: eachDir ]) sum
+]
+
+{ #category : 'counting' }
+AoCMatrix >> countWord: word at: aPoint dir: dirPoint [
+
+	| p |
+	
+	p := aPoint.
+	1 to: word size do: [ :idx |
+		((self at: p ifOutside: [ ^ 0 ]) = (word at: idx))
+			ifFalse: [ ^ 0 ].
+		p := p + dirPoint ].
+	^ 1
+]
+
+{ #category : 'iterating' }
+AoCMatrix >> doWithCells: aBlock [
+
+	rows doWithIndex: [ :line :y |
+		line doWithIndex: [ :each :x |
+			aBlock value: each value: x @ y ] ]
+]
+
+{ #category : 'initialization' }
+AoCMatrix >> initRows: aColl [
+
+	maxX := aColl first size.
+	maxY := aColl size.
+	rows := aColl.
+	
+	rows do: [ :each |
+		each size = maxX
+			ifFalse: [ self error: 'Row size mismatch' ] ]
+]
+
+{ #category : 'testing' }
+AoCMatrix >> isInside: aPoint [
+
+	^ (aPoint x between: 1 and: maxX) and: [ aPoint y between: 1 and: maxY ]
+]
+
+{ #category : 'accessing' }
+AoCMatrix >> maxX [
+
+	^ maxX
+]
+
+{ #category : 'accessing' }
+AoCMatrix >> maxY [
+
+	^ maxY
+]
+
+{ #category : 'accessing' }
+AoCMatrix >> wordAt: startPoint size: maxSize dir: dirPoint [
+
+	| stream |
+	
+	stream := WriteStream on: (rows first class new: 0).
+	self at: startPoint dir: dirPoint do: [ :each :point :cnt |
+		stream nextPut: each.
+		cnt >= maxSize
+			ifTrue: [ ^ stream contents ] ].
+	^ stream contents
+]
