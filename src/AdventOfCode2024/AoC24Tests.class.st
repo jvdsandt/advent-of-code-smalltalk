@@ -1,9 +1,6 @@
 Class {
 	#name : 'AoC24Tests',
 	#superclass : 'TestCase',
-	#classVars : [
-		'BaseDirectory'
-	],
 	#category : 'AdventOfCode2024',
 	#package : 'AdventOfCode2024'
 }
@@ -62,4 +59,24 @@ AoC24Tests >> testDay03 [
 	
 	data := 'xmul(2,4)&mul[3,7]!^don''t()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))'.
 	self assert: (AoC24Day03 part2: data readStream) equals: 48
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay04 [
+
+	| data |
+	
+	data := 'MMMSXXMASM
+MSAMXMSMSA
+AMXSXMAAMM
+MSAMASMSMX
+XMASAMXAMM
+XXAMMXXAMA
+SMSMSASXSS
+SAXAMASAAA
+MAMMMXMMMM
+MXMXAXMASX'.
+	self assert: (AoC24Day04 part1: data readStream) equals: 18.
+	
+	self assert: (AoC24Day04 part2: data readStream) equals: 9
 ]
