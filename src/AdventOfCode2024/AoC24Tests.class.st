@@ -80,3 +80,52 @@ MXMXAXMASX'.
 	
 	self assert: (AoC24Day04 part2: data readStream) equals: 9
 ]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay05 [
+
+	| data |
+	
+	data := '47|53
+97|13
+97|61
+97|47
+75|29
+61|13
+75|53
+29|13
+97|29
+53|29
+61|53
+97|53
+61|29
+47|13
+75|47
+97|75
+47|61
+75|61
+47|29
+75|13
+53|13
+
+75,47,61,53,29
+97,61,53,29,13
+75,29,13
+75,97,47,61,53
+61,13,29
+97,13,75,29,47'.
+	self assert: (AoC24Day05 part1: data readStream) equals: 143.
+	
+	self assert: (AoC24Day05 part2: data readStream) equals: 123
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay06 [
+
+	| data |
+	
+	data := ''.
+	self assert: (AoC24Day06 part1: data readStream) equals: 143.
+	
+	self assert: (AoC24Day06 part2: data readStream) equals: 123
+]
