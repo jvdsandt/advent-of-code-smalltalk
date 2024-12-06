@@ -13,13 +13,25 @@ Class {
 { #category : 'instance creation' }
 AoCMatrix class >> from: aReadStream [
 
-	^ self new initRows: (aReadStream linesCollect: [ :each | each]) asArray
+	^ self fromRows: (aReadStream linesCollect: [ :each | each]) asArray
+]
+
+{ #category : 'instance creation' }
+AoCMatrix class >> fromRows: aCollection [
+
+	^ self new initRows: aCollection
 ]
 
 { #category : 'accessing' }
 AoCMatrix >> allDirections [
 
 	^ { 1 @ 0. 1 @ 1. 0 @ 1. -1 @ 1. -1 @ 0. -1 @ -1. 0 @ -1. 1 @ -1 }
+]
+
+{ #category : 'converting' }
+AoCMatrix >> asRectangle [
+
+	^ Rectangle point: (1 @ 1) point: (maxX @ maxY)
 ]
 
 { #category : 'accessing' }
@@ -112,19 +124,26 @@ AoCMatrix >> findPos: aValue [
 { #category : 'initialization' }
 AoCMatrix >> initRows: aColl [
 
-	maxX := aColl first size.
+	maxX := aColl isEmpty 
+		ifTrue: [ 0 ]
+		ifFalse: [ aColl first size ].
 	maxY := aColl size.
 	rows := aColl.
 	
-	rows do: [ :each |
-		each size = maxX
-			ifFalse: [ self error: 'Row size mismatch' ] ]
+	(rows allSatisfy: [ :each | each size = maxX ])
+		ifFalse: [ self error: 'Row size mismatch' ]
 ]
 
 { #category : 'testing' }
 AoCMatrix >> isInside: aPoint [
 
 	^ (aPoint x between: 1 and: maxX) and: [ aPoint y between: 1 and: maxY ]
+]
+
+{ #category : 'testing' }
+AoCMatrix >> isOutside: aPoint [
+
+	^ (self isInside: aPoint) not
 ]
 
 { #category : 'accessing' }

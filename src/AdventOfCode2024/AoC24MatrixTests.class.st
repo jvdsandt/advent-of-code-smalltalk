@@ -6,6 +6,21 @@ Class {
 }
 
 { #category : 'tests' }
+AoC24MatrixTests >> testAsRectangle [
+
+	| matrix |
+	
+	matrix := AoCMatrix from: '...
+.X.
+XXX
+.X.
+...' readStream.
+
+	self assert: (Rectangle origin: (1 @ 1) corner: (3 @ 5)) equals: matrix asRectangle 
+	
+]
+
+{ #category : 'tests' }
 AoC24MatrixTests >> testBasics [
 
 	| matrix |
@@ -47,6 +62,30 @@ AoC24MatrixTests >> testCountWord [
 	
 	
 
+]
+
+{ #category : 'tests' }
+AoC24MatrixTests >> testEmpty [
+
+	| m |
+	
+	m := AoCMatrix fromRows: #().
+	self assert: m maxX equals: 0.
+	self assert: m maxY equals: 0.	
+	
+
+]
+
+{ #category : 'tests' }
+AoC24MatrixTests >> testInit [
+
+	| m |
+	
+	m := AoCMatrix fromRows: #( ( A B ) ( C D ) ( E F )).
+	self assert: m maxX equals: 2.
+	self assert: m maxY equals: 3.	
+	
+	self should: [ AoCMatrix fromRows: #( ( A B ) ( C D E )) ] raise: Error description: 'Row size mismatch'
 ]
 
 { #category : 'tests' }
