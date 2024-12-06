@@ -53,6 +53,12 @@ AoCMatrix >> at: aPoint ifOutside: aBlock [
 		ifFalse: [ aBlock value ]
 ]
 
+{ #category : 'accessing' }
+AoCMatrix >> at: aPoint put: aValue [
+
+	(rows at: aPoint y) at: aPoint x put: aValue
+]
+
 { #category : 'counting' }
 AoCMatrix >> countWord: word [
 
@@ -90,6 +96,17 @@ AoCMatrix >> doWithCells: aBlock [
 	rows doWithIndex: [ :line :y |
 		line doWithIndex: [ :each :x |
 			aBlock value: each value: x @ y ] ]
+]
+
+{ #category : 'accessing' }
+AoCMatrix >> findPos: aValue [
+
+	1 to: maxY do: [ :y |
+		| idx |
+		idx := (rows at: y) indexOf: aValue.
+		idx > 0
+			ifTrue: [ ^ idx @ y ] ].
+	self error: 'Not found'
 ]
 
 { #category : 'initialization' }

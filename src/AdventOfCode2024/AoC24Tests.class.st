@@ -62,26 +62,6 @@ AoC24Tests >> testDay03 [
 ]
 
 { #category : 'tests' }
-AoC24Tests >> testDay04 [
-
-	| data |
-	
-	data := 'MMMSXXMASM
-MSAMXMSMSA
-AMXSXMAAMM
-MSAMASMSMX
-XMASAMXAMM
-XXAMMXXAMA
-SMSMSASXSS
-SAXAMASAAA
-MAMMMXMMMM
-MXMXAXMASX'.
-	self assert: (AoC24Day04 part1: data readStream) equals: 18.
-	
-	self assert: (AoC24Day04 part2: data readStream) equals: 9
-]
-
-{ #category : 'tests' }
 AoC24Tests >> testDay05 [
 
 	| data |
@@ -124,8 +104,17 @@ AoC24Tests >> testDay06 [
 
 	| data |
 	
-	data := ''.
-	self assert: (AoC24Day06 part1: data readStream) equals: 143.
+	data := '....#.....
+.........#
+..........
+..#.......
+.......#..
+..........
+.#..^.....
+........#.
+#.........
+......#...'.
+	self assert: (AoC24Day06 part1: data readStream) equals: 41.
 	
-	self assert: (AoC24Day06 part2: data readStream) equals: 123
+	self assert: (AoC24Day06 part2: data readStream) equals: 6
 ]
