@@ -139,6 +139,19 @@ AoCMatrix >> maxY [
 	^ maxY
 ]
 
+{ #category : 'iterating' }
+AoCMatrix >> travelFrom: startPoint in: startDirection do: aBlock [
+
+	| p dir |
+	p := startPoint.
+	dir := startDirection.
+	[ self isInside: p ]
+		whileTrue: [ 
+			dir := aBlock cull: (self at: p) cull: p cull: dir. 
+			dir ifNil: [ ^ self ].
+			p := p + dir ]
+]
+
 { #category : 'accessing' }
 AoCMatrix >> wordAt: startPoint size: maxSize dir: dirPoint [
 

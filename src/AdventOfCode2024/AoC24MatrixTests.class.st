@@ -50,6 +50,34 @@ AoC24MatrixTests >> testCountWord [
 ]
 
 { #category : 'tests' }
+AoC24MatrixTests >> testTravelFrom [
+
+	| matrix pos visited |
+	
+	matrix := AoCMatrix from: '....#.....
+.........#
+..........
+..#.......
+.......#..
+..........
+.#..^.....
+........#.
+#.........
+......#...' readStream.
+
+	pos := matrix findPos: $^.
+	visited := Set new.
+	
+	matrix travelFrom: pos in: 0 @ -1 do: [ :value :p :dir |
+		visited add: p.
+		(matrix at: p + dir ifOutside: [ $X ]) = $#
+			ifTrue: [ dir rightRotated ]
+			ifFalse: [ dir ] ].
+		
+	self assert: visited size equals: 41
+]
+
+{ #category : 'tests' }
 AoC24MatrixTests >> testWordAt [
 
 	| matrix |

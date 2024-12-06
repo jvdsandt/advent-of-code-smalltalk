@@ -5,18 +5,12 @@ Class {
 	#package : 'AdventOfCode2024'
 }
 
-{ #category : 'accessing' }
-AoC24Tests >> baseDirectory [
-
-	^ AoC24 baseDirectory
-]
-
 { #category : 'tests' }
 AoC24Tests >> testBaseDirectory [
 	"AoC24 baseDirectory: 'C:\Stuff\AoC_2024'"
 	"AoC24 baseDirectory: '/Users/jan/Projects/AdventOfCode2024'"
 
-	self assert: self baseDirectory exists
+	self assert: AoC24 baseDirectory exists
 ]
 
 { #category : 'tests' }
@@ -117,4 +111,15 @@ AoC24Tests >> testDay06 [
 	self assert: (AoC24Day06 part1: data readStream) equals: 41.
 	
 	self assert: (AoC24Day06 part2: data readStream) equals: 6
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay07 [
+
+	| data |
+	
+	data := ''.
+	self assert: (AoC24Day07 part1: data readStream) equals: AoC24Day07.
+	
+	"self assert: (AoC24Day06 part2: data readStream) equals: 6"
 ]

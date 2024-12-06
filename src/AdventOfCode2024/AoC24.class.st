@@ -57,6 +57,12 @@ AoC24 class >> inputDay06 [
 ]
 
 { #category : 'accessing' }
+AoC24 class >> inputDay07 [
+
+	^ self inputDay: 7
+]
+
+{ #category : 'accessing' }
 AoC24 class >> inputDay: aNumber [
 
 	^ self baseDirectory / ('day', (aNumber printStringLength: 2 padded: true)) / 'input.txt'

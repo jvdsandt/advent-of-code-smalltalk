@@ -6,13 +6,30 @@ Class {
 }
 
 { #category : 'actions' }
-AoC24Day06 class >> isLoop: matrix start: startPos [
+AoC24Day06 class >> doTravel: matrix [
+
+	| visited startPos |
+	
+	visited := Set new.
+	startPos := matrix findPos: $^.
+	
+	matrix travelFrom: startPos in: 0 @ -1 do: [ :value :p :dir |
+		visited add: p.
+		(matrix at: p + dir ifOutside: [ $X ]) = $#
+			ifTrue: [ dir rightRotated ]
+			ifFalse: [ dir ] ].
+		
+	^ visited
+]
+
+{ #category : 'actions' }
+AoC24Day06 class >> isLoop: matrix start: startPos dir: startDir [
 
 	| visited pos dir |
 	
 	visited := Set new.
 	pos := startPos.
-	dir := 0 @ -1.
+	dir := startDir.
 	
 	[ true ] whileTrue: [ 
 		| nextPos |
@@ -40,21 +57,11 @@ AoC24Day06 class >> part1 [
 { #category : 'actions' }
 AoC24Day06 class >> part1: stream [
 
-	| matrix visited pos dir |
+	| matrix visited |
 	
 	matrix := AoCMatrix from: stream.
-	visited := Set new.
-	pos := matrix findPos: $^.
-	dir := 0 @ -1.
-	
-	[ 
-		visited add: pos.
-		(matrix isInside: pos + dir)
-			ifTrue: [ 
-				(matrix at: pos + dir) = $#
-					ifTrue: [ dir := dir rightRotated ].
-				pos := pos + dir ]
-			ifFalse: [ ^ visited size ] ] doWhileTrue: [ true ]
+	visited := self doTravel: matrix.
+	^ visited size
 ]
 
 { #category : 'examples' }
@@ -66,27 +73,22 @@ AoC24Day06 class >> part2 [
 { #category : 'actions' }
 AoC24Day06 class >> part2: stream [
 
-	| matrix pos cnt points |
+	| matrix startPos startDir visited cnt |
 	
 	matrix := AoCMatrix from: stream.
-	pos := matrix findPos: $^.
-	cnt := 0.
-	points := OrderedCollection new.
+	startPos := matrix findPos: $^.
+	startDir := 0 @ -1.
+	visited := self doTravel: matrix.
+	visited remove: startPos.
 	
-	1 to: matrix maxX do: [ :x |
-		1 to: matrix maxY do: [ :y |
-			(matrix at: x @ y) = $.
-				ifTrue: [ 
-					matrix at: x @ y put: $#.
-					(self isLoop: matrix start: pos)
-						ifTrue: [ cnt := cnt + 1. points add: x @ y ].
-					matrix at: x @ y put: $.. ] ] ].
-		
-	points do: [ :p | 
-		matrix at: p put: $#.
-		(self isLoop: matrix start: pos)
-			ifFalse: [ self error: 'No loop!' ].
-		matrix at: p put: $. ].
+	cnt := 0.
+	visited do: [ :p |
+		(matrix at: p) = $.
+			ifTrue: [ 
+				matrix at: p put: $#.
+				(self isLoop: matrix start: startPos dir: startDir)
+					ifTrue: [ cnt := cnt + 1 ].
+				matrix at: p put: $.. ] ].
 	
 	^ cnt
 ]
