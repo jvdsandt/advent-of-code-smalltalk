@@ -37,13 +37,13 @@ AoC24Day06 class >> isLoop: matrix start: startPos dir: startDir [
 		(matrix isInside: nextPos)
 			ifFalse: [ ^ false ].
 		(matrix at: nextPos) = $#
-			ifTrue: [ dir := dir rightRotated ]
-			ifFalse: [ 
-				(visited includes: (nextPos -> dir))
+			ifTrue: [ 
+				(visited includes: pos -> dir)
 					ifTrue: [ ^ true ]
-					ifFalse: [ 
-						visited add: nextPos -> dir.
-						pos := nextPos ] ] ].
+					ifFalse: [ visited add: pos -> dir ].
+				dir := dir rightRotated ]
+			ifFalse: [ 
+				pos := nextPos ] ].
 	"dummy return"
 	^ false
 ]
