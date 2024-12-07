@@ -6,31 +6,26 @@ Class {
 }
 
 { #category : 'examples' }
-AoC24Day07 class >> isValidEntry: entry using: operators [
+AoC24Day07 class >> isValid: expected result: result values: values using: operators [
 
-	| expected values results |
-	
-	expected := entry key.
-	values := entry value.
-	results := Set with: 0.
-	
-	values doWithIndex: [ :value :idx |
-		| newResults lastValue |
-		newResults := Set new.
-		lastValue := idx = values size.
-		operators do: [ :op |
-			results do: [ :eachSum |
-				| result |
-				result := eachSum perform: op with: value.
-				lastValue
-					ifTrue: [
-						result = expected
-							ifTrue: [ ^ true ] ]
-					ifFalse: [ 
-						newResults add: result ] ] ].
-		results := newResults ].
+	^ operators anySatisfy: [ :eachOp |
+			| newValue |
+			newValue := result perform: eachOp with: values first.
+			values size > 1
+				ifTrue: [ 
+					newValue <= expected 
+						ifTrue: [ self isValid: expected result: newValue values: values allButFirst using: operators ]
+						ifFalse: [ false ] ]
+				ifFalse: [ newValue = expected ] ]
+]
 
-	^ false
+{ #category : 'examples' }
+AoC24Day07 class >> isValid: expected values: values using: operators [
+
+	values size = 1
+		ifTrue: [ ^ expected = values first ].
+
+	^ self isValid: expected result: values first values: values allButFirst using: operators
 ]
 
 { #category : 'examples' }
@@ -60,7 +55,7 @@ AoC24Day07 class >> part1: stream [
 
 	sum := 0.
 	entries do: [ :each |
-		(self isValidEntry: each using: operators)
+		(self isValid: each key values: each value using: operators)
 			ifTrue: [ sum := sum + each key ] ].
 	^ sum
 ]
@@ -81,7 +76,7 @@ AoC24Day07 class >> part2: stream [
 
 	sum := 0.
 	entries do: [ :each |
-		(self isValidEntry: each using: operators)
+		(self isValid: each key values: each value using: operators)
 			ifTrue: [ sum := sum + each key ] ].
 	^ sum
 ]
