@@ -53,12 +53,9 @@ AoC24Day08 class >> part1: stream [
 	| matrix nodes chars |
 	
 	matrix := AoCMatrix from: stream.
-
 	nodes := Set new.
+	chars := matrix allValues copyWithout: $..
 
-	chars := matrix allValues
-		remove: $. ;
-		yourself.
 	chars do: [ :ch | nodes addAll: (self findNodesFor: ch in: matrix) ].
 	^ nodes size
 ]
@@ -75,12 +72,9 @@ AoC24Day08 class >> part2: stream [
 	| matrix nodes chars |
 	
 	matrix := AoCMatrix from: stream.
-
 	nodes := Set new.
+	chars := matrix allValues copyWithout: $..
 
-	chars := matrix allValues
-		remove: $. ;
-		yourself.
 	chars do: [ :ch | nodes addAll: (self findNodesPart2For: ch in: matrix) ].
 	^ nodes size
 ]
