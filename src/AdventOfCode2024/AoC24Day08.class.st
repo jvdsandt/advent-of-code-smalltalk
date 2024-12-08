@@ -11,9 +11,6 @@ AoC24Day08 class >> findNodesFor: ch in: matrix [
 	| posList set |
 	
 	posList := matrix findAllPos: ch.
-	posList isEmpty
-		ifTrue: [ ^ #() ].
-	
 	set := Set new.	
 	posList do: [ :p1 |
 		posList do: [ :p2 |
@@ -34,9 +31,6 @@ AoC24Day08 class >> findNodesPart2For: ch in: matrix [
 	| posList set |
 	
 	posList := matrix findAllPos: ch.
-	posList isEmpty
-		ifTrue: [ ^ #() ].
-	
 	set := Set new
 		addAll: posList;
 		yourself.	
@@ -73,7 +67,6 @@ AoC24Day08 class >> part1: stream [
 		yourself.
 	chars do: [ :ch | nodes addAll: (self findNodesFor: ch in: matrix) ].
 	^ nodes size
-	
 ]
 
 { #category : 'examples' }
@@ -96,5 +89,4 @@ AoC24Day08 class >> part2: stream [
 		yourself.
 	chars do: [ :ch | nodes addAll: (self findNodesPart2For: ch in: matrix) ].
 	^ nodes size
-	
 ]
