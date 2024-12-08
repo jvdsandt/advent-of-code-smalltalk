@@ -50,3 +50,15 @@ AoC24InputTests >> testDay07 [
 		equal: 70597497486371
 		description: 'day07 part2'.
 ]
+
+{ #category : 'tests' }
+AoC24InputTests >> testDay08 [
+
+	self should: [ AoC24 inputDay08 readStreamDo: [ :s | AoC24Day08 part1: s ] ] 
+		equal: 311
+		description: 'day08 part1'.
+		
+	self should: [ AoC24 inputDay08 readStreamDo: [ :s | AoC24Day08 part2: s ] ] 
+		equal: 1115
+		description: 'day08 part2'.
+]

@@ -28,6 +28,16 @@ AoCMatrix >> allDirections [
 	^ { 1 @ 0. 1 @ 1. 0 @ 1. -1 @ 1. -1 @ 0. -1 @ -1. 0 @ -1. 1 @ -1 }
 ]
 
+{ #category : 'accessing' }
+AoCMatrix >> allValues [
+
+	| values |
+	
+	values := Set new.
+	self do: [ :eachValue | values add: eachValue ].
+	^ values
+]
+
 { #category : 'converting' }
 AoCMatrix >> asRectangle [
 
@@ -103,11 +113,32 @@ AoCMatrix >> countWord: word at: aPoint dir: dirPoint [
 ]
 
 { #category : 'iterating' }
+AoCMatrix >> do: aBlock [
+
+	1 to: maxY do: [ :y |
+		1 to: maxX do: [ :x |
+			aBlock cull: (self at: (x @ y)) cull: (x @ y) ] ]
+]
+
+{ #category : 'iterating' }
 AoCMatrix >> doWithCells: aBlock [
 
 	rows doWithIndex: [ :line :y |
 		line doWithIndex: [ :each :x |
 			aBlock value: each value: x @ y ] ]
+]
+
+{ #category : 'accessing' }
+AoCMatrix >> findAllPos: aValue [
+
+	| list |
+	
+	list := OrderedCollection new.
+	1 to: maxY do: [ :y |
+		1 to: maxX do: [ :x |
+			(self at: x @ y) = aValue
+				ifTrue: [ list add: x @ y ] ] ].
+	^ list
 ]
 
 { #category : 'accessing' }
