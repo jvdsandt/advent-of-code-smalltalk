@@ -5,7 +5,7 @@ Class {
 	#package : 'AdventOfCode2024'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'examples' }
 AoC24Day08 class >> findNodesFor: ch in: matrix [
 
 	| posList set |
@@ -14,36 +14,30 @@ AoC24Day08 class >> findNodesFor: ch in: matrix [
 	set := Set new.	
 	posList do: [ :p1 |
 		posList do: [ :p2 |
-			p1 = p2
-				ifFalse: [ 
-					| delta |
-					delta := p2 - p1.
-					(matrix isInside: (p1 - delta))
-						ifTrue: [ set add: (p1 - delta) ].
-					(matrix isInside: (p2 + delta))
-						ifTrue: [ set add: (p2 + delta) ] ] ] ].
+			| delta |
+			delta := p2 - p1.
+			(matrix isInside: (p1 - delta))
+				ifTrue: [ set add: (p1 - delta) ].
+			(matrix isInside: (p2 + delta))
+				ifTrue: [ set add: (p2 + delta) ] ] without: p1 ].
 	^ set
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'examples' }
 AoC24Day08 class >> findNodesPart2For: ch in: matrix [
 
 	| posList set |
 	
 	posList := matrix findAllPos: ch.
-	set := Set new
-		addAll: posList;
-		yourself.	
+	set := Set withAll: posList.	
 	posList do: [ :p1 |
 		posList do: [ :p2 |
-			p1 = p2
-				ifFalse: [ 
-					| delta p |
-					delta := p2 - p1.
-					p := p1 - delta.
-					[ matrix isInside: p ] whileTrue: [ set add: p. p := p - delta ].
-					p := p2 + delta.
-					[ matrix isInside: p ] whileTrue: [ set add: p. p := p + delta ] ] ] ].
+			| delta p |
+			delta := p2 - p1.
+			p := p1 - delta.
+			[ matrix isInside: p ] whileTrue: [ set add: p. p := p - delta ].
+			p := p2 + delta.
+			[ matrix isInside: p ] whileTrue: [ set add: p. p := p + delta ] ] without: p1 ].
 	^ set
 ]
 
