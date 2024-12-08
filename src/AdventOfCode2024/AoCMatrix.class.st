@@ -34,7 +34,7 @@ AoCMatrix >> allValues [
 	| values |
 	
 	values := Set new.
-	self do: [ :eachValue | values add: eachValue ].
+	self doWithCells: [ :eachValue | values add: eachValue ].
 	^ values
 ]
 
@@ -113,19 +113,11 @@ AoCMatrix >> countWord: word at: aPoint dir: dirPoint [
 ]
 
 { #category : 'iterating' }
-AoCMatrix >> do: aBlock [
-
-	1 to: maxY do: [ :y |
-		1 to: maxX do: [ :x |
-			aBlock cull: (self at: (x @ y)) cull: (x @ y) ] ]
-]
-
-{ #category : 'iterating' }
 AoCMatrix >> doWithCells: aBlock [
 
 	rows doWithIndex: [ :line :y |
 		line doWithIndex: [ :each :x |
-			aBlock value: each value: x @ y ] ]
+			aBlock cull: each cull: x @ y ] ]
 ]
 
 { #category : 'accessing' }
