@@ -81,6 +81,17 @@ AoCMatrix >> at: aPoint put: aValue [
 	(rows at: aPoint y) at: aPoint x put: aValue
 ]
 
+{ #category : 'converting' }
+AoCMatrix >> convertToInteger [
+
+	1 to: maxY do: [ :y |
+		rows at: y put: ((rows at: y) asArray collect: [ :ch | 
+			ch isDigit 
+				ifTrue: [ ch asInteger - 48 ]
+				ifFalse: [ch ] ]) ]
+
+]
+
 { #category : 'counting' }
 AoCMatrix >> countWord: word [
 

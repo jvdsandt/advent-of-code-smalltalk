@@ -159,8 +159,26 @@ AoC24Tests >> testDay09 [
 
 	| data |
 	
-	data := ''.
-	self assert: (AoC24Day09 part1: data readStream) equals: AoC24Day09.
+	data := '2333133121414131402'.
+	self assert: (AoC24Day09 part1: data readStream) equals: 1928.
 	
-	"self assert: (AoC24Day09 part2: data readStream) equals: AoC24Day09"
+	self assert: (AoC24Day09 part2: data readStream) equals: 2858
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay10 [
+
+	| data |
+	
+	data := '89010123
+78121874
+87430965
+96549874
+45678903
+32019012
+01329801
+10456732'.
+	self assert: (AoC24Day10 part1: data readStream) equals: 36.
+	
+	self assert: (AoC24Day10 part2: data readStream) equals: 81
 ]

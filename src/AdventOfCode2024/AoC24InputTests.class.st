@@ -62,3 +62,27 @@ AoC24InputTests >> testDay08 [
 		equal: 1115
 		description: 'day08 part2'.
 ]
+
+{ #category : 'tests' }
+AoC24InputTests >> testDay09 [
+
+	self should: [ AoC24Day09 part1 ] 
+		equal: 6262891638328
+		description: 'day09 part1'.
+		
+	self should: [ AoC24Day09 part2 ] 
+		equal: 6287317016845
+		description: 'day09 part2'.
+]
+
+{ #category : 'tests' }
+AoC24InputTests >> testDay10 [
+
+	self should: [ AoC24Day10 part1 ] 
+		equal: 629
+		description: 'day10 part1'.
+		
+	self should: [ AoC24Day10 part2 ] 
+		equal: 1242
+		description: 'day10 part2'.
+]
