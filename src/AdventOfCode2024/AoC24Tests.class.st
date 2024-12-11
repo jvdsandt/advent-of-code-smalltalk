@@ -182,3 +182,14 @@ AoC24Tests >> testDay10 [
 	
 	self assert: (AoC24Day10 part2: data readStream) equals: 81
 ]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay11 [
+
+	| data |
+	
+	data := '125 17'.
+	self assert: (AoC24Day11 part1: data readStream) equals: 55312.
+	
+	self assert: (AoC24Day11 part2: data readStream) equals: 55312
+]
