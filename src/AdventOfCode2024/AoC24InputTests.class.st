@@ -86,3 +86,15 @@ AoC24InputTests >> testDay10 [
 		equal: 1242
 		description: 'day10 part2'.
 ]
+
+{ #category : 'tests' }
+AoC24InputTests >> testDay11 [
+
+	self should: [ AoC24Day11 part1 ] 
+		equal: 186996
+		description: 'day11 part1'.
+		
+	self should: [ AoC24Day11 part2 ] 
+		equal: 221683913164898
+		description: 'day11 part2'.
+]

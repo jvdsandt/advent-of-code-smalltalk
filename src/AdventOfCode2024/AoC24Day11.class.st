@@ -6,27 +6,26 @@ Class {
 }
 
 { #category : 'examples' }
-AoC24Day11 class >> count: numbers after: blonkCount [
+AoC24Day11 class >> countOne: nr after: blonkCount cache: cache [
 
-	| sum |
+	| nrStr key sum |
 	
 	blonkCount = 0
-		ifTrue: [ ^ numbers size ].
+		ifTrue: [ ^ 1 ].
 	
-	sum := 0.
-	numbers do: [ :nr |
-		| nrStr |
-		sum := sum + (nr = 0
-			ifTrue: [ (self count: (Array with: 1) after: blonkCount-1) ]
-			ifFalse: [ 
-				nrStr := nr asString.
-				(nrStr size \\ 2) = 0 
-					ifTrue: [
-						self count: (Array
-							with: (nrStr copyFrom: 1 to: (nrStr size / 2)) asInteger
-							with: (nrStr copyFrom: (nrStr size / 2)+1 to: nrStr size) asInteger) after: blonkCount-1 ]
-					ifFalse: [
-						self count: (Array with: nr * 2024) after: blonkCount-1 ] ]) ].
+	key := (Array with: nr with: blonkCount).
+	cache at: key ifPresent: [ :v | ^ v ].
+	
+	sum := nr = 0
+		ifTrue: [ self countOne: 1 after: blonkCount-1 cache: cache]
+		ifFalse: [ 
+			nrStr := nr asString.
+			(nrStr size \\ 2) = 0 ifTrue: [
+				(self countOne: (nrStr copyFrom: 1 to: (nrStr size / 2)) asInteger after: blonkCount-1 cache: cache) +
+				(self countOne: (nrStr copyFrom: (nrStr size / 2)+1 to: nrStr size) asInteger after: blonkCount-1 cache: cache) ]
+			ifFalse: [
+				self countOne: nr * 2024 after: blonkCount-1 cache: cache ] ].
+	cache at: key put: sum.
 	^ sum
 ]
 
@@ -39,11 +38,13 @@ AoC24Day11 class >> part1 [
 { #category : 'examples' }
 AoC24Day11 class >> part1: stream [
 
-	| numbers |
+	| numbers cache |
 	
 	numbers := stream contents asIntegers.
+	cache := Dictionary new.
 	
-	^ self count: numbers after: 25
+	^ numbers inject: 0 into: [ :sum :each  | 
+			sum + (self countOne: each after: 25 cache: cache) ]
 ]
 
 { #category : 'examples' }
@@ -55,9 +56,11 @@ AoC24Day11 class >> part2 [
 { #category : 'examples' }
 AoC24Day11 class >> part2: stream [
 
-	| numbers |
+	| numbers cache |
 	
 	numbers := stream contents asIntegers.
+	cache := Dictionary new.
 	
-	^ self count: numbers after: 75
+	^ numbers inject: 0 into: [ :sum :each  | 
+			sum + (self countOne: each after: 75 cache: cache) ]
 ]
