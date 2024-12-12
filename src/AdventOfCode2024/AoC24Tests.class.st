@@ -199,8 +199,71 @@ AoC24Tests >> testDay12 [
 
 	| data |
 	
-	data := ''.
-	self assert: (AoC24Day12 part1: data readStream) equals: AoC24Day12.
+	data := 'AAAA
+BBCD
+BBCC
+EEEC'.
+	self assert: (AoC24Day12 part1: data readStream) equals: 140.
 	
+	data := 'OOOOO
+OXOXO
+OOOOO
+OXOXO
+OOOOO'.
+	self assert: (AoC24Day12 part1: data readStream) equals: 772.
+
+	data := 'RRRRIICCFF
+RRRRIICCCF
+VVRRRCCFFF
+VVRCCCJFFF
+VVVVCJJCFE
+VVIVCCJJEE
+VVIIICJJEE
+MIIIIIJJEE
+MIIISIJEEE
+MMMISSJEEE'.
+	self assert: (AoC24Day12 part1: data readStream) equals: 1930.
+
+
 	"self assert: (AoC24Day12 part2: data readStream) equals: AoC24Day12"
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay12part2 [
+
+	| data |
+	
+	data := 'AAAA
+BBCD
+BBCC
+EEEC'.
+	self assert: (AoC24Day12 part2: data readStream) equals: 80.
+	
+	data := 'EEEEE
+EXXXX
+EEEEE
+EXXXX
+EEEEE'.
+	self assert: (AoC24Day12 part2: data readStream) equals: 236.
+
+	data := 'AAAAAA
+AAABBA
+AAABBA
+ABBAAA
+ABBAAA
+AAAAAA'.
+	self assert: (AoC24Day12 part2: data readStream) equals: 368.
+
+	data := 'RRRRIICCFF
+RRRRIICCCF
+VVRRRCCFFF
+VVRCCCJFFF
+VVVVCJJCFE
+VVIVCCJJEE
+VVIIICJJEE
+MIIIIIJJEE
+MIIISIJEEE
+MMMISSJEEE'.
+	self assert: (AoC24Day12 part2: data readStream) equals: 1206.
+
 ]

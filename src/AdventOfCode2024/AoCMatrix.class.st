@@ -155,6 +155,28 @@ AoCMatrix >> findPos: aValue [
 	self error: 'Not found'
 ]
 
+{ #category : 'accessing' }
+AoCMatrix >> getPlotPoints: p [
+	
+	| points |
+	
+	points := Set new.
+	self getPlotPoints: p value: (self at: p) visited: points.
+	^ points
+]
+
+{ #category : 'accessing' }
+AoCMatrix >> getPlotPoints: p value: value visited: visited [
+	
+	visited add: p.
+	{ 1 @ 0. 0 @ 1. -1 @ 0. 0 @ -1 } do: [ :dir | 
+		((self isInside: p + dir) and: [ (self at: p + dir) = value ])
+			ifTrue: [ 
+				(visited includes: p + dir)
+					ifFalse: [ self getPlotPoints: p + dir value: value visited: visited ] ] ].
+
+]
+
 { #category : 'initialization' }
 AoCMatrix >> initRows: aColl [
 
