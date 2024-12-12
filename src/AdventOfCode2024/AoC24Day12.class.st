@@ -5,7 +5,7 @@ Class {
 	#package : 'AdventOfCode2024'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'examples' }
 AoC24Day12 class >> countFences: plot [
 
 	| dirs sum |
@@ -19,7 +19,7 @@ AoC24Day12 class >> countFences: plot [
 	^ sum
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'examples' }
 AoC24Day12 class >> countSides: plot [
 
 	| dirs fences |
