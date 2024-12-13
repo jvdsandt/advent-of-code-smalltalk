@@ -1,58 +1,57 @@
 Class {
-	#name : 'AoC24Day09Block',
-	#superclass : 'Object',
+	#name : #AoC24Day09Block,
+	#superclass : #Object,
 	#instVars : [
 		'start',
 		'size'
 	],
-	#category : 'AdventOfCode2024',
-	#package : 'AdventOfCode2024'
+	#category : 'AdventOfCode2024'
 }
 
-{ #category : 'comparing' }
+{ #category : #comparing }
 AoC24Day09Block >> <= other [
 
 	^ start <= other start
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 AoC24Day09Block >> initStart: aStart size: aSize [
 
 	start := aStart.
 	size := aSize
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 AoC24Day09Block >> isFileBlock [
 
 	^ false
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 AoC24Day09Block >> isFreeBlock [
 
 	^ false
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoC24Day09Block >> size [
 
 	^ size
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoC24Day09Block >> size: anObject [
 
 	size := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoC24Day09Block >> start [
 
 	^ start
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoC24Day09Block >> start: anObject [
 
 	start := anObject

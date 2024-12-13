@@ -1,20 +1,19 @@
 Class {
-	#name : 'AoC24Day09',
-	#superclass : 'Object',
+	#name : #AoC24Day09,
+	#superclass : #Object,
 	#instVars : [
 		'blocks'
 	],
-	#category : 'AdventOfCode2024',
-	#package : 'AdventOfCode2024'
+	#category : 'AdventOfCode2024'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day09 class >> part1 [
 
 	^ AoC24 inputDay09 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day09 class >> part1: stream [
 
 	| blocks id pos firstFreePos sum |
@@ -48,13 +47,13 @@ AoC24Day09 class >> part1: stream [
 	^ sum
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day09 class >> part2 [
 
 	^ AoC24 inputDay09 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day09 class >> part2: stream [
 
 	| list id pos blocks |
@@ -79,7 +78,7 @@ AoC24Day09 class >> part2: stream [
 	^ blocks sum
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day09 class >> partX: stream [
 
 	| blocks id pos firstFreePos sum |
@@ -113,7 +112,7 @@ AoC24Day09 class >> partX: stream [
 	^ sum
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 AoC24Day09 >> compact [
 
 	| fileBlocks |
@@ -126,13 +125,13 @@ AoC24Day09 >> compact [
 			self swap: eachFile with: freeblock ] ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 AoC24Day09 >> initBlocks: aList [
 
 	blocks := aList
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 AoC24Day09 >> mergeFreeBlocks [
 
 	| newBlocks stream |
@@ -152,13 +151,13 @@ AoC24Day09 >> mergeFreeBlocks [
 
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 AoC24Day09 >> printOn: stream [
 
 	blocks do: [ :each | each printOn: stream ]
 ]
 
-{ #category : 'primitives - plugin' }
+{ #category : #'primitives - plugin' }
 AoC24Day09 >> sum [
 
 	| sum |
@@ -170,7 +169,7 @@ AoC24Day09 >> sum [
 	^ sum
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 AoC24Day09 >> swap: fileblock with: freeblock [
 
 	| fstart |

@@ -1,11 +1,10 @@
 Class {
-	#name : 'AoC24Day08',
-	#superclass : 'Object',
-	#category : 'AdventOfCode2024',
-	#package : 'AdventOfCode2024'
+	#name : #AoC24Day08,
+	#superclass : #Object,
+	#category : 'AdventOfCode2024'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day08 class >> findNodesFor: ch in: matrix [
 
 	| posList set |
@@ -23,7 +22,7 @@ AoC24Day08 class >> findNodesFor: ch in: matrix [
 	^ set
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day08 class >> findNodesPart2For: ch in: matrix [
 
 	| posList set |
@@ -41,13 +40,13 @@ AoC24Day08 class >> findNodesPart2For: ch in: matrix [
 	^ set
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day08 class >> part1 [
 
 	^ AoC24 inputDay08 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day08 class >> part1: stream [
 
 	| matrix nodes chars |
@@ -60,13 +59,13 @@ AoC24Day08 class >> part1: stream [
 	^ nodes size
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day08 class >> part2 [
 
 	^ AoC24 inputDay08 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day08 class >> part2: stream [
 
 	| matrix nodes chars |

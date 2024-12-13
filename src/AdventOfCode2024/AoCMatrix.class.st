@@ -1,34 +1,33 @@
 Class {
-	#name : 'AoCMatrix',
-	#superclass : 'Object',
+	#name : #AoCMatrix,
+	#superclass : #Object,
 	#instVars : [
 		'rows',
 		'maxX',
 		'maxY'
 	],
-	#category : 'AdventOfCode2024',
-	#package : 'AdventOfCode2024'
+	#category : 'AdventOfCode2024'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 AoCMatrix class >> from: aReadStream [
 
 	^ self fromRows: (aReadStream linesCollect: [ :each | each]) asArray
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 AoCMatrix class >> fromRows: aCollection [
 
 	^ self new initRows: aCollection
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> allDirections [
 
 	^ { 1 @ 0. 1 @ 1. 0 @ 1. -1 @ 1. -1 @ 0. -1 @ -1. 0 @ -1. 1 @ -1 }
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> allValues [
 
 	| values |
@@ -38,19 +37,19 @@ AoCMatrix >> allValues [
 	^ values
 ]
 
-{ #category : 'converting' }
+{ #category : #converting }
 AoCMatrix >> asRectangle [
 
 	^ Rectangle point: (1 @ 1) point: (maxX @ maxY)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> at: aPoint [
 
 	^ (rows at: aPoint y) at: aPoint x
 ]
 
-{ #category : 'iterating' }
+{ #category : #iterating }
 AoCMatrix >> at: aPoint dir: dirPoint do: aBlock [
 
 	| p counter |
@@ -67,7 +66,7 @@ AoCMatrix >> at: aPoint dir: dirPoint do: aBlock [
 			p := p + dirPoint ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> at: aPoint ifOutside: aBlock [
 
 	^ (self isInside: aPoint)
@@ -75,13 +74,13 @@ AoCMatrix >> at: aPoint ifOutside: aBlock [
 		ifFalse: [ aBlock value ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> at: aPoint put: aValue [
 
 	(rows at: aPoint y) at: aPoint x put: aValue
 ]
 
-{ #category : 'converting' }
+{ #category : #converting }
 AoCMatrix >> convertToInteger [
 
 	1 to: maxY do: [ :y |
@@ -92,7 +91,7 @@ AoCMatrix >> convertToInteger [
 
 ]
 
-{ #category : 'counting' }
+{ #category : #counting }
 AoCMatrix >> countWord: word [
 
 	| sum |
@@ -104,13 +103,13 @@ AoCMatrix >> countWord: word [
 	^ sum
 ]
 
-{ #category : 'counting' }
+{ #category : #counting }
 AoCMatrix >> countWord: word at: aPoint [
 
 	^ (self allDirections collect: [ :eachDir | self countWord: word at: aPoint dir: eachDir ]) sum
 ]
 
-{ #category : 'counting' }
+{ #category : #counting }
 AoCMatrix >> countWord: word at: aPoint dir: dirPoint [
 
 	| p |
@@ -123,7 +122,7 @@ AoCMatrix >> countWord: word at: aPoint dir: dirPoint [
 	^ 1
 ]
 
-{ #category : 'iterating' }
+{ #category : #iterating }
 AoCMatrix >> doWithCells: aBlock [
 
 	rows doWithIndex: [ :line :y |
@@ -131,7 +130,7 @@ AoCMatrix >> doWithCells: aBlock [
 			aBlock cull: each cull: x @ y ] ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> findAllPos: aValue [
 
 	| list |
@@ -144,7 +143,7 @@ AoCMatrix >> findAllPos: aValue [
 	^ list
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> findPos: aValue [
 
 	1 to: maxY do: [ :y |
@@ -155,7 +154,7 @@ AoCMatrix >> findPos: aValue [
 	self error: 'Not found'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> getPlotPoints: p [
 	
 	| points |
@@ -165,7 +164,7 @@ AoCMatrix >> getPlotPoints: p [
 	^ points
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> getPlotPoints: p value: value visited: visited [
 	
 	visited add: p.
@@ -177,7 +176,7 @@ AoCMatrix >> getPlotPoints: p value: value visited: visited [
 
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 AoCMatrix >> initRows: aColl [
 
 	maxX := aColl isEmpty 
@@ -190,31 +189,31 @@ AoCMatrix >> initRows: aColl [
 		ifFalse: [ self error: 'Row size mismatch' ]
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 AoCMatrix >> isInside: aPoint [
 
 	^ (aPoint x between: 1 and: maxX) and: [ aPoint y between: 1 and: maxY ]
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 AoCMatrix >> isOutside: aPoint [
 
 	^ (self isInside: aPoint) not
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> maxX [
 
 	^ maxX
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> maxY [
 
 	^ maxY
 ]
 
-{ #category : 'iterating' }
+{ #category : #iterating }
 AoCMatrix >> travelFrom: startPoint in: startDirection do: aBlock [
 
 	| p dir |
@@ -227,7 +226,7 @@ AoCMatrix >> travelFrom: startPoint in: startDirection do: aBlock [
 			p := p + dir ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 AoCMatrix >> wordAt: startPoint size: maxSize dir: dirPoint [
 
 	| stream |

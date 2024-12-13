@@ -1,19 +1,18 @@
 Class {
-	#name : 'AoC24Tests',
-	#superclass : 'TestCase',
-	#category : 'AdventOfCode2024',
-	#package : 'AdventOfCode2024'
+	#name : #AoC24Tests,
+	#superclass : #TestCase,
+	#category : #AdventOfCode2024
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testBaseDirectory [
 	"AoC24 baseDirectory: 'C:\Stuff\AoC_2024'"
-	"AoC24 baseDirectory: '/Users/jan/Projects/AdventOfCode2024'"
+	"AoC24 baseDirectory: '/Users/jeske/Downloads/jan-aoc24'"
 
 	self assert: AoC24 baseDirectory exists
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay01 [
 
 	| data |
@@ -28,7 +27,7 @@ AoC24Tests >> testDay01 [
 	self assert: (AoC24Day01 part2: data readStream) equals: 31
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay02 [
 
 	| data |
@@ -43,7 +42,7 @@ AoC24Tests >> testDay02 [
 	self assert: (AoC24Day02 part2: data readStream) equals: 4
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay03 [
 
 	| data |
@@ -55,7 +54,7 @@ AoC24Tests >> testDay03 [
 	self assert: (AoC24Day03 part2: data readStream) equals: 48
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay05 [
 
 	| data |
@@ -93,7 +92,7 @@ AoC24Tests >> testDay05 [
 	self assert: (AoC24Day05 part2: data readStream) equals: 123
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay06 [
 
 	| data |
@@ -113,7 +112,7 @@ AoC24Tests >> testDay06 [
 	self assert: (AoC24Day06 part2: data readStream) equals: 6
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay07 [
 
 	| data |
@@ -132,7 +131,7 @@ AoC24Tests >> testDay07 [
 	self assert: (AoC24Day07 part2: data readStream) equals: 11387
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay08 [
 
 	| data |
@@ -154,7 +153,7 @@ AoC24Tests >> testDay08 [
 	self assert: (AoC24Day08 part2: data readStream) equals: 34
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay09 [
 
 	| data |
@@ -165,7 +164,7 @@ AoC24Tests >> testDay09 [
 	self assert: (AoC24Day09 part2: data readStream) equals: 2858"
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay10 [
 
 	| data |
@@ -183,7 +182,7 @@ AoC24Tests >> testDay10 [
 	self assert: (AoC24Day10 part2: data readStream) equals: 81
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay11 [
 
 	| data |
@@ -194,7 +193,7 @@ AoC24Tests >> testDay11 [
 	"self assert: (AoC24Day11 part2: data readStream) equals: 55312"
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay12 [
 
 	| data |
@@ -228,7 +227,7 @@ MMMISSJEEE'.
 	"self assert: (AoC24Day12 part2: data readStream) equals: AoC24Day12"
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay12part2 [
 
 	| data |
@@ -268,13 +267,27 @@ MMMISSJEEE'.
 
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 AoC24Tests >> testDay13 [
 
 	| data |
 	
-	data := ''.
-	self assert: (AoC24Day13 part1: data readStream) equals: AoC24Day13.
+	data := 'Button A: X+94, Y+34
+Button B: X+22, Y+67
+Prize: X=8400, Y=5400
+
+Button A: X+26, Y+66
+Button B: X+67, Y+21
+Prize: X=12748, Y=12176
+
+Button A: X+17, Y+86
+Button B: X+84, Y+37
+Prize: X=7870, Y=6450
+
+Button A: X+69, Y+23
+Button B: X+27, Y+71
+Prize: X=18641, Y=10279'.
+	self assert: (AoC24Day13 part1: data readStream) equals: 480.
 	
 	"self assert: (AoC24Day13 part2: data readStream) equals: 55312"
 ]

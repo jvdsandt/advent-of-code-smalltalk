@@ -1,17 +1,16 @@
 Class {
-	#name : 'AoC24Day02',
-	#superclass : 'Object',
-	#category : 'AdventOfCode2024',
-	#package : 'AdventOfCode2024'
+	#name : #AoC24Day02,
+	#superclass : #Object,
+	#category : 'AdventOfCode2024'
 }
 
-{ #category : 'testing' }
+{ #category : #testing }
 AoC24Day02 class >> isSafe: anArray [
 
 	^ self isSafe: anArray maxErrors: 0
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 AoC24Day02 class >> isSafe: anArray maxErrors: limit [
 
 	2 to: anArray size do: [ :idx |
@@ -25,13 +24,13 @@ AoC24Day02 class >> isSafe: anArray maxErrors: limit [
 	^ true
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day02 class >> part1 [
 
 	^ self part1: AoC24 inputDay02
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day02 class >> part1: inputStream [
 
 	| lines |
@@ -40,13 +39,13 @@ AoC24Day02 class >> part1: inputStream [
 		   (self isSafe: each) or: [ self isSafe: each reversed ] ]) size
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day02 class >> part2 [
 
 	^ self part2: AoC24 inputDay02
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 AoC24Day02 class >> part2: inputStream [
 
 	| lines |
