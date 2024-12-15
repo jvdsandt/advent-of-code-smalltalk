@@ -6,7 +6,7 @@ Class {
 		'maxX',
 		'maxY'
 	],
-	#category : 'AdventOfCode2024'
+	#category : #AdventOfCode2024
 }
 
 { #category : #'instance creation' }
@@ -211,6 +211,17 @@ AoCMatrix >> maxX [
 AoCMatrix >> maxY [
 
 	^ maxY
+]
+
+{ #category : #printing }
+AoCMatrix >> printOn: stream [
+
+	rows do: [ :each |
+		each do: [ :v |
+			v isCharacter 
+				ifTrue: [ stream nextPut: v ]
+				ifFalse: [ stream nextPutAll: v asString ] ].
+		stream cr ]
 ]
 
 { #category : #iterating }
