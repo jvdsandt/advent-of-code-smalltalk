@@ -224,6 +224,22 @@ AoCMatrix >> printOn: stream [
 		stream cr ]
 ]
 
+{ #category : #printing }
+AoCMatrix >> printWith: path on: stream [
+
+	rows doWithIndex: [ :each :y |
+		each doWithIndex: [ :v :x |
+			| p |
+			p := path detect: [ :e | e key = (x @ y) ] ifNone: [ nil ].
+			p 
+				ifNotNil: [ stream nextPut: $* ]
+				ifNil: [  
+					v isCharacter 
+						ifTrue: [ stream nextPut: v ]
+						ifFalse: [ stream nextPutAll: v asString ] ] ].
+		stream cr ]
+]
+
 { #category : #iterating }
 AoCMatrix >> travelFrom: startPoint in: startDirection do: aBlock [
 
