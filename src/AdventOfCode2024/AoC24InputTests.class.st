@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24InputTests,
-	#superclass : #TestCase,
-	#category : 'AdventOfCode2024'
+	#name : 'AoC24InputTests',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 AoC24InputTests >> should: aBlock equal: expected description: aText [
 
 	| time result |
@@ -14,7 +15,7 @@ AoC24InputTests >> should: aBlock equal: expected description: aText [
 	Transcript crShow: (self class name, ' ', aText, ' result=', result asString, ' time=', time asString, 'ms')
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24InputTests >> testDay01 [
 
 	self should: [ AoC24 inputDay01 readStreamDo: [ :s | AoC24Day01 part1: s ] ] 
@@ -26,7 +27,7 @@ AoC24InputTests >> testDay01 [
 		description: 'day01 part2'.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24InputTests >> testDay06 [
 
 	self should: [ AoC24 inputDay06 readStreamDo: [ :s | AoC24Day06 part1: s ] ] 
@@ -38,7 +39,7 @@ AoC24InputTests >> testDay06 [
 		description: 'day06 part2'.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24InputTests >> testDay07 [
 
 	self should: [ AoC24 inputDay07 readStreamDo: [ :s | AoC24Day07 part1: s ] ] 
@@ -50,7 +51,7 @@ AoC24InputTests >> testDay07 [
 		description: 'day07 part2'.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24InputTests >> testDay08 [
 
 	self should: [ AoC24 inputDay08 readStreamDo: [ :s | AoC24Day08 part1: s ] ] 
@@ -62,7 +63,7 @@ AoC24InputTests >> testDay08 [
 		description: 'day08 part2'.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24InputTests >> testDay09 [
 
 	self should: [ AoC24Day09 part1 ] 
@@ -74,7 +75,7 @@ AoC24InputTests >> testDay09 [
 		description: 'day09 part2'.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24InputTests >> testDay10 [
 
 	self should: [ AoC24Day10 part1 ] 
@@ -86,7 +87,7 @@ AoC24InputTests >> testDay10 [
 		description: 'day10 part2'.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24InputTests >> testDay11 [
 
 	self should: [ AoC24Day11 part1 ] 

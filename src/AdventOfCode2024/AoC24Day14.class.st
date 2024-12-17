@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24Day14,
-	#superclass : #Object,
-	#category : #AdventOfCode2024
+	#name : 'AoC24Day14',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> areOnALine: points [
 
 	points size < 2
@@ -17,7 +18,7 @@ AoC24Day14 class >> areOnALine: points [
 	^ true
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> calcScore: points with: w height: h [
 
 	| middle q1 q2 q3 q4 |
@@ -37,7 +38,7 @@ AoC24Day14 class >> calcScore: points with: w height: h [
 	^ q1 * q2 * q3 * q4
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> isChristmasTree: points [
 
 	| pointsPerRow minY maxY trianglePoints index baserow |
@@ -72,7 +73,7 @@ AoC24Day14 class >> isChristmasTree: points [
 	^ trianglePoints size > 10
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> parse: stream [
 
 	| list |
@@ -89,19 +90,19 @@ AoC24Day14 class >> parse: stream [
 	^ list
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> part1 [
 
 	^ AoC24 inputDay14 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> part1: stream [
 
 	^ self part1: stream width: 101 height: 103
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> part1: stream width: w height: h [
 
 	| robots finalPos middle q1 q2 q3 q4 |
@@ -126,19 +127,19 @@ AoC24Day14 class >> part1: stream width: w height: h [
 	^ q1 * q2 * q3 * q4
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> part2 [
 
 	^ AoC24 inputDay14 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> part2: stream [
 
 	^ self part2: stream width: 101 height: 103
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day14 class >> part2: stream width: w height: h [
 
 	| robots newpos cnt score newScore |
@@ -164,7 +165,7 @@ AoC24Day14 class >> part2: stream width: w height: h [
 	^ cnt
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 AoC24Day14 class >> showPoints: points [
 
 	| ws |
@@ -180,7 +181,7 @@ AoC24Day14 class >> showPoints: points [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 AoC24Day14 class >> showPoints: points round: r [
 
 	| ws |

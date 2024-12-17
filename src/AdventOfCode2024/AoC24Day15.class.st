@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24Day15,
-	#superclass : #Object,
-	#category : #AdventOfCode2024
+	#name : 'AoC24Day15',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day15 class >> calcSum: matrix [
 
 	| sum |
@@ -17,7 +18,7 @@ AoC24Day15 class >> calcSum: matrix [
 	^ sum
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day15 class >> canMove: pos in: matrix dir: dir [
 
 	| value |
@@ -40,7 +41,7 @@ AoC24Day15 class >> canMove: pos in: matrix dir: dir [
 	^ self canMove: pos + dir in: matrix dir: dir
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day15 class >> expandMatrix: input [
 
 	| ws |
@@ -59,13 +60,13 @@ AoC24Day15 class >> expandMatrix: input [
 	^ AoCMatrix from: ws contents readStream
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day15 class >> move: pos in: matrix dir: dir [
 
 	self move: pos in: matrix dir: dir alreadyMoved: Set new
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day15 class >> move: pos in: matrix dir: dir alreadyMoved: set [
 
 	| value |
@@ -88,7 +89,7 @@ AoC24Day15 class >> move: pos in: matrix dir: dir alreadyMoved: set [
 	set add: pos
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 AoC24Day15 class >> parse: stream [
 
 	| firstPart matrixWs moves |
@@ -108,13 +109,13 @@ AoC24Day15 class >> parse: stream [
 	^ Array with: (AoCMatrix from: matrixWs contents readStream) with: moves
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day15 class >> part1 [
 
 	^ AoC24 inputDay15 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day15 class >> part1: stream [
 
 	| array matrix moves robotPos dirs |
@@ -139,13 +140,13 @@ AoC24Day15 class >> part1: stream [
 	^ self calcSum: matrix
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day15 class >> part2 [
 
 	^ AoC24 inputDay15 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day15 class >> part2: stream [
 
 	| array matrix moves robotPos dirs |

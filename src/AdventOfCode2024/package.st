@@ -1,1 +1,1 @@
-Package { #name : #AdventOfCode2024 }
+Package { #name : 'AdventOfCode2024' }

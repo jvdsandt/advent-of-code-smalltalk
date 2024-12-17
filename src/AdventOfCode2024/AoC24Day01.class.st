@@ -2,19 +2,20 @@
 Advent of Code day 1
 "
 Class {
-	#name : #AoC24Day01,
-	#superclass : #Object,
-	#category : 'AdventOfCode2024'
+	#name : 'AoC24Day01',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day01 class >> part1 [
 	"self part1"
 
 	^ self part1: AoC24 inputDay01
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day01 class >> part1: readstream [
 
 	| list1 list2 sum |
@@ -33,13 +34,13 @@ AoC24Day01 class >> part1: readstream [
 	^ sum
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day01 class >> part2 [
 
 	^ self part2: AoC24 inputDay01
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day01 class >> part2: readstream [
 
 	| list1 list2 sum |

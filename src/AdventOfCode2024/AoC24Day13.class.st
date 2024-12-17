@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24Day13,
-	#superclass : #Object,
-	#category : #AdventOfCode2024
+	#name : 'AoC24Day13',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day13 class >> calcCost2: da with: db with: pmin [
 
 	| p a b |
@@ -20,7 +21,7 @@ AoC24Day13 class >> calcCost2: da with: db with: pmin [
 	^ ( a * 3) + b
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day13 class >> calcCost: da with: db with: p [
 
 	| a b |
@@ -35,7 +36,7 @@ AoC24Day13 class >> calcCost: da with: db with: p [
 	^ ( a * 3) + b
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day13 class >> parse: stream [	
 
 	| ba bb prize list |
@@ -50,7 +51,7 @@ AoC24Day13 class >> parse: stream [
 	^ list
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day13 class >> parseXY: stream [	
 
 	| x y |
@@ -62,13 +63,13 @@ AoC24Day13 class >> parseXY: stream [
 	^ x @ y
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day13 class >> part1 [
 
 	^ AoC24 inputDay13 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day13 class >> part1: stream [
 
 	| list |
@@ -79,13 +80,13 @@ AoC24Day13 class >> part1: stream [
 			sum + (self calcCost: each first with: each second with: each third) ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day13 class >> part2 [
 
 	^ AoC24 inputDay13 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day13 class >> part2: stream [
 
 	| list |

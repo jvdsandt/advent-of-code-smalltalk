@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24Day07,
-	#superclass : #Object,
-	#category : 'AdventOfCode2024'
+	#name : 'AoC24Day07',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day07 class >> isValid: expected result: result values: values using: operators [
 
 	^ operators anySatisfy: [ :eachOp |
@@ -18,7 +19,7 @@ AoC24Day07 class >> isValid: expected result: result values: values using: opera
 				ifFalse: [ newValue = expected ] ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day07 class >> isValid: expected values: values using: operators [
 
 	values size = 1
@@ -27,7 +28,7 @@ AoC24Day07 class >> isValid: expected values: values using: operators [
 	^ self isValid: expected result: values first values: values allButFirst using: operators
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day07 class >> parseInput: stream [
 
 	^ stream linesCollect: [ :each |
@@ -38,13 +39,13 @@ AoC24Day07 class >> parseInput: stream [
 		key -> values ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day07 class >> part1 [
 
 	^ AoC24 inputDay07 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day07 class >> part1: stream [
 
 	| entries operators sum |
@@ -59,13 +60,13 @@ AoC24Day07 class >> part1: stream [
 	^ sum
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day07 class >> part2 [
 
 	^ AoC24 inputDay07 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day07 class >> part2: stream [
 
 	| entries operators sum |

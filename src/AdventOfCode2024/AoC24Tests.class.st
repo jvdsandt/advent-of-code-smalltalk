@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24Tests,
-	#superclass : #TestCase,
-	#category : #AdventOfCode2024
+	#name : 'AoC24Tests',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testBaseDirectory [
 	"AoC24 baseDirectory: 'C:\Stuff\AoC_2024'"
 	"AoC24 baseDirectory: '/Users/jeske/Downloads/jan-aoc24'"
@@ -12,7 +13,7 @@ AoC24Tests >> testBaseDirectory [
 	self assert: AoC24 baseDirectory exists
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay01 [
 
 	| data |
@@ -27,7 +28,7 @@ AoC24Tests >> testDay01 [
 	self assert: (AoC24Day01 part2: data readStream) equals: 31
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay02 [
 
 	| data |
@@ -42,7 +43,7 @@ AoC24Tests >> testDay02 [
 	self assert: (AoC24Day02 part2: data readStream) equals: 4
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay03 [
 
 	| data |
@@ -54,7 +55,7 @@ AoC24Tests >> testDay03 [
 	self assert: (AoC24Day03 part2: data readStream) equals: 48
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay05 [
 
 	| data |
@@ -92,7 +93,7 @@ AoC24Tests >> testDay05 [
 	self assert: (AoC24Day05 part2: data readStream) equals: 123
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay06 [
 
 	| data |
@@ -112,7 +113,7 @@ AoC24Tests >> testDay06 [
 	self assert: (AoC24Day06 part2: data readStream) equals: 6
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay07 [
 
 	| data |
@@ -131,7 +132,7 @@ AoC24Tests >> testDay07 [
 	self assert: (AoC24Day07 part2: data readStream) equals: 11387
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay08 [
 
 	| data |
@@ -153,7 +154,7 @@ AoC24Tests >> testDay08 [
 	self assert: (AoC24Day08 part2: data readStream) equals: 34
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay09 [
 
 	| data |
@@ -164,7 +165,7 @@ AoC24Tests >> testDay09 [
 	self assert: (AoC24Day09 part2: data readStream) equals: 2858"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay10 [
 
 	| data |
@@ -182,7 +183,7 @@ AoC24Tests >> testDay10 [
 	self assert: (AoC24Day10 part2: data readStream) equals: 81
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay11 [
 
 	| data |
@@ -193,7 +194,7 @@ AoC24Tests >> testDay11 [
 	"self assert: (AoC24Day11 part2: data readStream) equals: 55312"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay12 [
 
 	| data |
@@ -227,7 +228,7 @@ MMMISSJEEE'.
 	"self assert: (AoC24Day12 part2: data readStream) equals: AoC24Day12"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay12part2 [
 
 	| data |
@@ -267,7 +268,7 @@ MMMISSJEEE'.
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay13 [
 
 	| data |
@@ -292,7 +293,7 @@ Prize: X=18641, Y=10279'.
 	"self assert: (AoC24Day13 part2: data readStream) equals: 55312"
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay14 [
 
 	| data |
@@ -312,7 +313,7 @@ p=9,5 v=-3,-3'.
 	self assert: (AoC24Day14 part1: data readStream width: 11 height: 7) equals: 12
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay15 [
 
 	| data |
@@ -355,7 +356,7 @@ v^^>>><<^^<>>^v^<v^vv<>v^<<>^<^v^v><^<<<><<^<v><v<>vv>>v><v^<vv<>v^<<^'.
 	self assert: (AoC24Day15 part2: data readStream) equals: 9021
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24Tests >> testDay16 [
 
 	| data |
@@ -376,6 +377,7 @@ AoC24Tests >> testDay16 [
 #S..#.....#...#
 ###############'.
 	self assert: (AoC24Day16 part1: data readStream) equals: 7036.
+	self assert: (AoC24Day16 part2: data readStream) equals: 45.
 	
 	data := '#################
 #...#...#...#..E#
@@ -395,6 +397,6 @@ AoC24Tests >> testDay16 [
 #S#.............#
 #################'.
 	self assert: (AoC24Day16 part1: data readStream) equals: 11048.
-	
-	"self assert: (AoC24Day15 part2: data readStream) equals: 9021"
+	self assert: (AoC24Day16 part2: data readStream) equals: 64.
+
 ]

@@ -1,16 +1,17 @@
 Class {
-	#name : #AoC24Day03,
-	#superclass : #Object,
-	#category : 'AdventOfCode2024'
+	#name : 'AoC24Day03',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day03 class >> part1 [
 
 	^ AoC24 inputDay03 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day03 class >> part1: stream [
 
 	| list |
@@ -24,13 +25,13 @@ AoC24Day03 class >> part1: stream [
 		nr1 * nr2 ]) sum
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day03 class >> part2 [
 
 	^ AoC24 inputDay03 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day03 class >> part2: stream [
 
 	| list sum on |

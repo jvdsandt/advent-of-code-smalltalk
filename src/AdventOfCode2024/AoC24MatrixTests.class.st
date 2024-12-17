@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24MatrixTests,
-	#superclass : #TestCase,
-	#category : 'AdventOfCode2024'
+	#name : 'AoC24MatrixTests',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24MatrixTests >> testAsRectangle [
 
 	| matrix |
@@ -19,7 +20,7 @@ XXX
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24MatrixTests >> testBasics [
 
 	| matrix |
@@ -35,7 +36,7 @@ AoC24MatrixTests >> testBasics [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24MatrixTests >> testCountWord [
 
 	| matrix |
@@ -63,7 +64,7 @@ AoC24MatrixTests >> testCountWord [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24MatrixTests >> testEmpty [
 
 	| m |
@@ -75,7 +76,7 @@ AoC24MatrixTests >> testEmpty [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24MatrixTests >> testInit [
 
 	| m |
@@ -87,7 +88,7 @@ AoC24MatrixTests >> testInit [
 	self should: [ AoCMatrix fromRows: #( ( A B ) ( C D E )) ] raise: Error description: 'Row size mismatch'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24MatrixTests >> testTravelFrom [
 
 	| matrix pos visited |
@@ -115,7 +116,7 @@ AoC24MatrixTests >> testTravelFrom [
 	self assert: visited size equals: 41
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24MatrixTests >> testWordAt [
 
 	| matrix |
@@ -128,7 +129,7 @@ AoC24MatrixTests >> testWordAt [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoC24MatrixTests >> xmasMatrix [
 
 	^ AoCMatrix from: 'MMMSXXMASM

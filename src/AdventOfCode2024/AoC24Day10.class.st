@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24Day10,
-	#superclass : #Object,
-	#category : 'AdventOfCode2024'
+	#name : 'AoC24Day10',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day10 class >> allPeaksFrom: point in: matrix [
 
 	| val dirs set |
@@ -23,7 +24,7 @@ AoC24Day10 class >> allPeaksFrom: point in: matrix [
 	^ set
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day10 class >> countAllPathsFrom: point in: matrix [
 
 	| val cnt dirs |
@@ -42,13 +43,13 @@ AoC24Day10 class >> countAllPathsFrom: point in: matrix [
 	^ cnt
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day10 class >> part1 [
 
 	^ AoC24 inputDay10 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day10 class >> part1: stream [
 
 	| matrix startList sum |
@@ -63,13 +64,13 @@ AoC24Day10 class >> part1: stream [
 	^ sum
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day10 class >> part2 [
 
 	^ AoC24 inputDay10 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day10 class >> part2: stream [
 
 	| matrix startList sum |

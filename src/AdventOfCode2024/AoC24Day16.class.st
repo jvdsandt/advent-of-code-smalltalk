@@ -1,13 +1,14 @@
 Class {
-	#name : #AoC24Day16,
-	#superclass : #Object,
+	#name : 'AoC24Day16',
+	#superclass : 'Object',
 	#classInstVars : [
-		'minCosts'
+		'paths'
 	],
-	#category : #AdventOfCode2024
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day16 class >> calcCosts: path [
 
 	| turns |
@@ -20,39 +21,60 @@ AoC24Day16 class >> calcCosts: path [
 	^ path size + (turns * 1000)
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day16 class >> part1 [
 
 	^ AoC24 inputDay16 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day16 class >> part1: stream [
 
-	| matrix startpos startdir endpos path |
+	| matrix startpos startdir endpos costs |
 	
 	matrix := AoCMatrix from: stream.
 	startpos := matrix findPos: $S.
 	startdir := 1 @ 0.
 	endpos := matrix findPos: $E.
 	
-	minCosts := 2 raisedTo: 62.
-	path := self travelFrom: (Array with: startpos -> startdir) in: matrix to: endpos.
+	costs := Dictionary new.
+	paths := OrderedCollection new.
+	self travelFrom: (Array with: startpos -> startdir) in: matrix to: endpos costs: costs.
 	
-	^ self calcCosts: path
+	^ (costs keys select: [ :e | e key + e value = endpos ]) min: [ :k | costs at: k ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day16 class >> part2 [
 
 	^ AoC24 inputDay16 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day16 class >> part2: stream [
+
+	| matrix startpos startdir endpos costs minCost places |
+	
+	matrix := AoCMatrix from: stream.
+	startpos := matrix findPos: $S.
+	startdir := 1 @ 0.
+	endpos := matrix findPos: $E.
+	
+	costs := Dictionary new.
+	paths := OrderedCollection new.
+	self travelFrom: (Array with: startpos -> startdir) in: matrix to: endpos costs: costs.
+	
+	minCost := (costs keys select: [ :e | e key + e value = endpos ]) min: [ :k | costs at: k ].
+	paths := paths select: [ :e | (self calcCosts: e) = minCost ].
+	
+	places := Set new.
+	places add: endpos.
+	paths do: [ :each | each do: [ :kv | places add: kv key ] ].
+	^ places size
+	
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day16 class >> travelFrom: path in: matrix to: endpos [
 
 	| currpos currdir rightdir leftdir newPath newCosts |
@@ -88,47 +110,34 @@ AoC24Day16 class >> travelFrom: path in: matrix to: endpos [
 	^ newPath
 ]
 
-{ #category : #examples }
-AoC24Day16 class >> travelFrom: path in: matrix to: endpos costs: minCosts [
+{ #category : 'examples' }
+AoC24Day16 class >> travelFrom: path in: matrix to: endpos costs: costs [
 
-	| currpos currdir allPaths rightdir leftdir newPath newCosts |
+	| cost currpos currdir rightdir leftdir |
+	
+	cost := self calcCosts: path.
+	((costs includesKey: path last) and: [ cost > (costs at: path last) ])
+		ifTrue: [ ^ nil ].
+	costs at: path last put: cost.
 	
 	currpos := path last key.
 	currdir := path last value.
 	currpos + currdir = endpos
-		ifTrue: [ ^ path ].
+		ifTrue: [ 
+			paths add: path.
+			^ path ].
 	(path anySatisfy: [ :kv | kv key = (currpos + currdir) ])
 		ifTrue: [ ^ nil ].
-	newCosts := minCosts.
 		
 	rightdir := currdir rightRotated.
 	leftdir := currdir leftRotated.
 	  
 	(matrix at: currpos + currdir) ~= $#
-		ifTrue: [ 
-			(self travelFrom: (path copyWith: (currpos + currdir) -> currdir) in: matrix to: endpos costs: newCosts)
-				ifNotNil: [ :p | 
-					| c | 
-					c := self calcCosts: p.
-					c < newCosts 
-						ifTrue: [ newPath := p. newCosts := c ] ] ].
+		ifTrue: [ self travelFrom: (path copyWith: (currpos + currdir) -> currdir) in: matrix to: endpos costs: costs ].
 		
 	(matrix at: currpos + rightdir) ~= $#
-		ifTrue: [ 
-			(self travelFrom: (path copyWith: (currpos + rightdir) -> rightdir) in: matrix to: endpos costs: newCosts) 
-				ifNotNil: [ :p | 
-					| c | 
-					c := self calcCosts: p.
-					c < newCosts 
-						ifTrue: [ newPath := p. newCosts := c ] ] ].
+		ifTrue: [ self travelFrom: (path copyWith: (currpos + rightdir) -> rightdir) in: matrix to: endpos costs: costs ].
 			
 	(matrix at: currpos + leftdir) ~= $#
-		ifTrue: [ 
-			(self travelFrom: (path copyWith: (currpos + leftdir) -> leftdir) in: matrix to: endpos costs: newCosts) 
-				ifNotNil: [ :p | 
-					| c | 
-					c := self calcCosts: p.
-					c < newCosts 
-						ifTrue: [ newPath := p. newCosts := c ] ] ].
-	^ newPath
+		ifTrue: [ self travelFrom: (path copyWith: (currpos + leftdir) -> leftdir) in: matrix to: endpos costs: costs ].
 ]

@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24Day12,
-	#superclass : #Object,
-	#category : 'AdventOfCode2024'
+	#name : 'AoC24Day12',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day12 class >> countFences: plot [
 
 	| dirs sum |
@@ -18,7 +19,7 @@ AoC24Day12 class >> countFences: plot [
 	^ sum
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day12 class >> countSides: plot [
 
 	| dirs fences |
@@ -37,13 +38,13 @@ AoC24Day12 class >> countSides: plot [
 	^ fences size
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day12 class >> part1 [
 
 	^ AoC24 inputDay12 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day12 class >> part1: stream [
 
 	| matrix visited sum |
@@ -62,13 +63,13 @@ AoC24Day12 class >> part1: stream [
 	^ sum
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day12 class >> part2 [
 
 	^ AoC24 inputDay12 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day12 class >> part2: stream [
 
 	| matrix visited sum |

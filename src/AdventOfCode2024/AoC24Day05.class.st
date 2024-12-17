@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24Day05,
-	#superclass : #Object,
-	#category : 'AdventOfCode2024'
+	#name : 'AoC24Day05',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 AoC24Day05 class >> isOrdered: nrs dict: beforeDict [
 
 	2 to: nrs size do: [ :idx |
@@ -18,13 +19,13 @@ AoC24Day05 class >> isOrdered: nrs dict: beforeDict [
 	^ true
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day05 class >> part1 [
 
 	^ AoC24 inputDay05 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day05 class >> part1: stream [
 
 	| beforeDict lines |
@@ -48,13 +49,13 @@ AoC24Day05 class >> part1: stream [
 	^ (lines collect: [ :eachNrs | eachNrs middle ]) sum
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day05 class >> part2 [
 
 	^ AoC24 inputDay05 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 AoC24Day05 class >> part2: stream [
 
 	| beforeDict lines |
@@ -80,7 +81,7 @@ AoC24Day05 class >> part2: stream [
 	^ (lines collect: [ :eachNrs | eachNrs middle ]) sum
 ]
 
-{ #category : #sorting }
+{ #category : 'sorting' }
 AoC24Day05 class >> sort: nrs dict: beforeDict [
 
 	| sortedNrs |

@@ -1,10 +1,11 @@
 Class {
-	#name : #AoC24Day11,
-	#superclass : #Object,
-	#category : 'AdventOfCode2024'
+	#name : 'AoC24Day11',
+	#superclass : 'Object',
+	#category : 'AdventOfCode2024',
+	#package : 'AdventOfCode2024'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day11 class >> countOne: nr after: blonkCount cache: cache [
 
 	| nrStr key sum |
@@ -28,13 +29,13 @@ AoC24Day11 class >> countOne: nr after: blonkCount cache: cache [
 	^ sum
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day11 class >> part1 [
 
 	^ AoC24 inputDay11 readStreamDo: [ :s | self part1: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day11 class >> part1: stream [
 
 	| numbers cache |
@@ -46,13 +47,13 @@ AoC24Day11 class >> part1: stream [
 			sum + (self countOne: each after: 25 cache: cache) ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day11 class >> part2 [
 
 	^ AoC24 inputDay11 readStreamDo: [ :s | self part2: s ]
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 AoC24Day11 class >> part2: stream [
 
 	| numbers cache |
