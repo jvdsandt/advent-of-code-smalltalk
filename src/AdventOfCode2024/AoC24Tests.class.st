@@ -400,3 +400,135 @@ AoC24Tests >> testDay16 [
 	self assert: (AoC24Day16 part2: data readStream) equals: 64.
 
 ]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay17 [
+
+	| data |
+	
+	data := 'Register A: 729
+Register B: 0
+Register C: 0
+
+Program: 0,1,5,4,3,0'.
+	self assert: (AoC24Day17 part1: data readStream) equals: '4635635210'.
+
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay17Line1 [
+
+	| data compu |
+	
+	data := 'Register A: 0
+Register B: 0
+Register C: 9
+
+Program: 2,6'.
+	compu := AoC24Day17 new initFrom: data readStream.
+	compu run.
+	self assert: compu b equals: 1
+
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay17Line2 [
+
+	| data compu |
+	
+	data := 'Register A: 10
+Register B: 0
+Register C: 0
+
+Program: 5,0,5,1,5,4'.
+	compu := AoC24Day17 new initFrom: data readStream.
+	compu run.
+	self assert: compu output asArray equals: #( 0 1 2 )
+
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay17Line3 [
+
+	| data compu |
+	
+	data := 'Register A: 2024
+Register B: 0
+Register C: 0
+
+Program: 0,1,5,4,3,0'.
+	compu := AoC24Day17 new initFrom: data readStream.
+	compu run.
+	self assert: compu output asArray equals: #( 4 2 5 6 7 7 7 7 3 1 0 ).
+	self assert: compu a equals: 0
+
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay17Line4 [
+
+	| data compu |
+	
+	data := 'Register A: 0
+Register B: 29
+Register C: 0
+
+Program: 1,7'.
+	compu := AoC24Day17 new initFrom: data readStream.
+	compu run.
+	self assert: compu b equals: 26
+
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay17Line5 [
+
+	| data compu |
+	
+	data := 'Register A: 0
+Register B: 2024
+Register C: 43690
+
+Program: 4,0'.
+	compu := AoC24Day17 new initFrom: data readStream.
+	compu run.
+	self assert: compu b equals: 44354
+
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay18 [
+
+	| data |
+	
+	data := '5,4
+4,2
+4,5
+3,0
+2,1
+6,3
+2,4
+1,5
+0,6
+3,3
+2,6
+5,1
+1,2
+5,5
+2,5
+6,5
+1,4
+0,4
+6,4
+1,1
+6,1
+1,0
+0,5
+1,6
+2,0'.
+	self assert: (AoC24Day18 part1: data readStream rows: 7 cols: 7 fallen: 12) equals: 22.
+	
+	self assert: (AoC24Day18 part2: data readStream rows: 7 cols: 7 fallen: 12) equals: 6 @ 1.
+	
+
+]

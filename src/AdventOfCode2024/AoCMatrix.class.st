@@ -22,6 +22,17 @@ AoCMatrix class >> fromRows: aCollection [
 	^ self new initRows: aCollection
 ]
 
+{ #category : 'instance creation' }
+AoCMatrix class >> rows: ycnt cols: xcnt withAll: value [
+
+	| coll rowClass |
+	
+	rowClass := value isCharacter ifTrue: [ String ] ifFalse: [ Array ].
+	coll := Array new: ycnt.
+	1 to: ycnt do: [ :y | coll at: y put: (rowClass new: xcnt withAll: value) ].
+	^ self fromRows: coll
+]
+
 { #category : 'accessing' }
 AoCMatrix >> allDirections [
 
