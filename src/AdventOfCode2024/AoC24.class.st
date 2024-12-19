@@ -129,6 +129,48 @@ AoC24 class >> inputDay18 [
 ]
 
 { #category : 'accessing' }
+AoC24 class >> inputDay19 [
+
+	^ self inputDay: 19
+]
+
+{ #category : 'accessing' }
+AoC24 class >> inputDay20 [
+
+	^ self inputDay: 20
+]
+
+{ #category : 'accessing' }
+AoC24 class >> inputDay21 [
+
+	^ self inputDay: 21
+]
+
+{ #category : 'accessing' }
+AoC24 class >> inputDay22 [
+
+	^ self inputDay: 22
+]
+
+{ #category : 'accessing' }
+AoC24 class >> inputDay23 [
+
+	^ self inputDay: 23
+]
+
+{ #category : 'accessing' }
+AoC24 class >> inputDay24 [
+
+	^ self inputDay: 24
+]
+
+{ #category : 'accessing' }
+AoC24 class >> inputDay25 [
+
+	^ self inputDay: 25
+]
+
+{ #category : 'accessing' }
 AoC24 class >> inputDay: aNumber [
 
 	^ self baseDirectory / ('day', (aNumber printStringLength: 2 padded: true)) / 'input.txt'

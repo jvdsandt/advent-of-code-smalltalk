@@ -532,3 +532,23 @@ AoC24Tests >> testDay18 [
 	
 
 ]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay19 [
+
+	| data |
+	
+	data := 'r, wr, b, g, bwu, rb, gb, br
+
+brwrr
+bggr
+gbbr
+rrbgbr
+ubwu
+bwurrg
+brgr
+bbrgwb'.
+	self assert: (AoC24Day19 part1: data readStream) equals: 6.
+	
+	self assert: (AoC24Day19 part2: data readStream) equals: 16
+]
