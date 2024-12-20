@@ -552,3 +552,28 @@ bbrgwb'.
 	
 	self assert: (AoC24Day19 part2: data readStream) equals: 16
 ]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay20 [
+
+	| data |
+	
+	data := '###############
+#...#...#.....#
+#.#.#.#.#.###.#
+#S#...#.#.#...#
+#######.#.#.###
+#######.#.#...#
+#######.#.###.#
+###..E#...#...#
+###.#######.###
+#...###...#...#
+#.#####.#.###.#
+#.#...#.#.#...#
+#.#.#.#.#.#.###
+#...#...#...###
+###############'.
+	self assert: (AoC24Day20 part1: data readStream minSavings: 1) equals: 44.
+	
+	self assert: (AoC24Day20 part2: data readStream) equals: 0
+]
