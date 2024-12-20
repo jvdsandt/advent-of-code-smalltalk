@@ -577,3 +577,14 @@ AoC24Tests >> testDay20 [
 	
 	self assert: (AoC24Day20 part2: data readStream) equals: 0
 ]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay21 [
+
+	| data |
+	
+	data := ''.
+	self assert: (AoC24Day21 part1: data readStream) equals: AoC24Day21.
+	
+	self assert: (AoC24Day21 part2: data readStream) equals: AoC24Day21
+]

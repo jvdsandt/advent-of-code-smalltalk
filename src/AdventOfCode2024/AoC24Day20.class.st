@@ -32,9 +32,7 @@ AoC24Day20 class >> part1: stream minSavings: min [
 	matrix := AoCMatrix from: stream.
 	^ self new
 		setMatrix: matrix;
-		runPart1: min
-		
-	
+		run: min maxCheats: 2
 ]
 
 { #category : 'examples' }
@@ -51,7 +49,7 @@ AoC24Day20 class >> part2: stream [
 	matrix := AoCMatrix from: stream.
 	^ self new
 		setMatrix: matrix;
-		runPart2: 100 maxCheats: 20
+		run: 100 maxCheats: 20
 		
 ]
 
@@ -77,32 +75,7 @@ AoC24Day20 >> initNodesAndEdges [
 ]
 
 { #category : 'running' }
-AoC24Day20 >> runPart1: minSavings [
-
-	| path cnt |
-	
-	path := self shortestPath asArray.
-	cnt := 0.
-	
-	1 to: path size do: [ :pi1 |
-		pi1+1 to: path size do: [ :pi2 |
-			| p1 p2 manDist pathDist timeSaved |
-			p1 := path at: pi1.
-			p2 := path at: pi2.
-			(p1 x = p2 x or: [ p1 y = p2 y ])
-				ifTrue: [ 
-					manDist := (p2 x - p1 x) abs + (p2 y - p1 y) abs.
-					manDist <= 2
-						ifTrue: [ 
-							pathDist := pi2 - pi1.
-							timeSaved := pathDist - manDist.
-							timeSaved >= minSavings
-								ifTrue: [ cnt := cnt + 1 ] ] ] ] ].
-	^ cnt
-]
-
-{ #category : 'running' }
-AoC24Day20 >> runPart2: minSavings maxCheats: maxCheats [
+AoC24Day20 >> run: minSavings maxCheats: maxCheats [
 
 	| path cnt |
 	
@@ -133,7 +106,7 @@ AoC24Day20 >> setMatrix: aMatrix [
 	self initNodesAndEdges.	
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'running' }
 AoC24Day20 >> shortestPath [
 
 	| dijkstra |
