@@ -8,8 +8,8 @@ Class {
 		'nodes',
 		'edges'
 	],
-	#category : 'AdventOfCode2024',
-	#package : 'AdventOfCode2024'
+	#category : 'AdventOfCode2023',
+	#package : 'AdventOfCode2023'
 }
 
 { #category : 'examples' }

@@ -13,6 +13,27 @@ AoC24Day21 class >> part1 [
 
 { #category : 'examples' }
 AoC24Day21 class >> part1: stream [
+
+	| codes numKeypad dirKeypad1 dirKeypad2 dirKeypad3 |
+	
+	codes := stream linesCollect: [ :each | each trimBoth ].
+	
+	dirKeypad1 := AoC24Day21Keypad new initDirectional.
+	
+	dirKeypad2 := AoC24Day21Keypad new initDirectional.
+	dirKeypad2 controller: dirKeypad1.
+
+	dirKeypad3 := AoC24Day21Keypad new initDirectional.
+	dirKeypad3 controller: dirKeypad2.
+
+	numKeypad := AoC24Day21Keypad new initNumeric.
+	numKeypad controller: dirKeypad3.
+
+	codes do: [ :eachCode |
+		eachCode do: [ :eachDigit |
+			numKeypad moveTo: eachDigit ] ].
+	
+
 ]
 
 { #category : 'examples' }

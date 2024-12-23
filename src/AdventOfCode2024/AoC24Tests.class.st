@@ -412,7 +412,6 @@ Register C: 0
 
 Program: 0,1,5,4,3,0'.
 	self assert: (AoC24Day17 part1: data readStream) equals: '4635635210'.
-
 ]
 
 { #category : 'tests' }
@@ -582,9 +581,96 @@ AoC24Tests >> testDay20 [
 AoC24Tests >> testDay21 [
 
 	| data |
+	data := '029A
+980A
+179A
+456A
+379A'.
+"	self assert: (AoC24Day21 part1: data readStream) equals: 126384.
+
+	self assert: (AoC24Day21 part2: data readStream) equals: AoC24Day21"
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay22 [
+
+	| data |
 	
+	data := '1
+10
+100
+2024'.
+	self assert: (AoC24Day22 part1: data readStream) equals: 37327623.
+	
+	data := '1
+2
+3
+2024'.
+	self assert: (AoC24Day22 part2: data readStream) equals: 23
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay23 [
+
+	| data |
+	data := 'kh-tc
+qp-kh
+de-cg
+ka-co
+yn-aq
+qp-ub
+cg-tb
+vc-aq
+tb-ka
+wh-tc
+yn-cg
+kh-ub
+ta-co
+de-co
+tc-td
+tb-wq
+wh-td
+ta-ka
+td-qp
+aq-cg
+wq-ub
+ub-vc
+de-ta
+wq-aq
+wq-vc
+wh-yn
+ka-de
+kh-ta
+co-tc
+wh-qp
+tb-vc
+td-yn'.
+	self assert: (AoC24Day23 part1: data readStream) equals: 7.
+
+
+	self
+		assert: (AoC24Day23 part2: data readStream)
+		equals: 'co,de,ka,ta'
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay24 [
+
+	| data |
 	data := ''.
-	self assert: (AoC24Day21 part1: data readStream) equals: AoC24Day21.
-	
-	self assert: (AoC24Day21 part2: data readStream) equals: AoC24Day21
+
+	self assert: (AoC24Day24 part1: data readStream) equals: AoC24Day24.
+
+
+]
+
+{ #category : 'tests' }
+AoC24Tests >> testDay25 [
+
+	| data |
+	data := ''.
+
+	self assert: (AoC24Day25 part1: data readStream) equals: AoC24Day25.
+
+
 ]
