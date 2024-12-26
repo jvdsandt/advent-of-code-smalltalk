@@ -10,6 +10,13 @@ Class {
 }
 
 { #category : 'code-critics' }
+ManifestAdventOfCode2024 class >> ruleCollectionProtocolRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGPackageDefinition #(#AdventOfCode2024)) #'2024-12-26T11:26:01.723544+01:00') )
+]
+
+{ #category : 'code-critics' }
 ManifestAdventOfCode2024 class >> ruleModifiesCollectionRuleV1FalsePositive [
 
 	<ignoreForCoverage>

@@ -69,6 +69,7 @@ AoC24Day23 class >> part2: stream [
 
 { #category : 'examples' }
 AoC24Day23 class >> recurseBK: r poss: p exc: x in: connDict [
+	"See https://en.wikipedia.org/wiki/Bron%E2%80%93Kerbosch_algorithm"
 
 	| cliques res poss exc |
 	res := r.
@@ -82,7 +83,7 @@ AoC24Day23 class >> recurseBK: r poss: p exc: x in: connDict [
 		| vertSet |
 		vertSet := Set with: vertex.
 		cliques addAll: (self
-				 recurseBK: res, vertSet
+				 recurseBK: res , vertSet
 				 poss: (poss intersection: (connDict at: vertex))
 				 exc: (exc intersection: (connDict at: vertex))
 				 in: connDict).
